@@ -1,0 +1,13 @@
+mixin btn(action)
+    button(type='button', data-action=action)&attributes(attributes)
+        block
+
+mixin popupBtn(popupName)
+    button(type='button', data-action='popup', data-popup=popupName)&attributes(attributes)
+        block
+
+mixin img(src)
+    img(src=src || '', alt='')&attributes(attributes)
+
+mixin anchor(href)
+    a(href=href || '#')&attributes(attributes): block
