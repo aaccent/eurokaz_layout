@@ -1,0 +1,20 @@
+include layout/utils
+
+-
+    var slides = [
+        {
+            image: require('assets/content/main-hero/1.png'),
+            title: 'Доставка негабаритного оборудования из Китая',
+            description:'Экспертные решения для перевозки ценностей:  от бронированного транспорта до строгой конфиденциальности. Гарантия сохранности  и своевременной доставки в любую точку мира'
+        },{
+            image: require('assets/content/main-hero/2.jpg'),
+            title: 'Комплекс услуг по транспортировке  ценных грузов ',
+            description:'Экспертные решения для перевозки ценностей:  от бронированного транспорта до строгой конфиденциальности. Гарантия сохранности  и своевременной доставки в любую точку мира'
+        },
+    ]
+
++section({container:false}).main-hero.swiper
+    .swiper-wrapper
+        each slide in slides
+            .main-hero__slide.swiper-slide
+                +img(slide.image)

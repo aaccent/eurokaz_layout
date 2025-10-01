@@ -1,2 +1,34 @@
+include layout/utils
+-
+    var menu = [
+        {
+            name: 'Направления',
+            submenu: ['Казахстан — Россия', 'Китай — Казахстан — Россия', 'Европа — Казахстан — Россия', 'США — Казахстан — Россия']
+        },{
+            name: 'Вид транспорта',
+            submenu: ['Автомобильные перевозки','Железнодорожные перевозки', 'Авиационные перевозки','Морские перевозки']
+        },{
+            name: 'Услуги',
+            submenu: ['Транспортировка грузов', 'Складское хранение и обработка', 'Таможенное оформление', 'Юридическое сопровождение', 'Подбор персонала', 'Аутсорсинг бухгалтерии']
+        },{
+            name: 'Кесы',
+        },
+    ]
+
 header.header
     .container
+        .header__left
+            .header__logo-container
+                +img(require('assets/icons/logo.svg')).header__logo
+                .header__menu-button Меню
+            +anchor.header__tel(tel='8 (976) 543 21 00') 8 (976) 543 21 00
+        .header__right
+            nav
+                ul.header__menu-list
+                    each item in menu
+                        li.header__menu-item= item.name
+                            if item.submenu
+                                ul.header__submenu
+                                    each sub in item.submenu
+                                        li.header__submenu-item= sub
+            button.button.header__button(data-action='popup', data-popup='call-popup') Получить консультацию

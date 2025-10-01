@@ -1,0 +1,76 @@
+@use 'styles/utils';
+
+.button {
+    padding: 18px 24px;
+    width: fit-content;
+    font: var(--text-base400);
+    background-color: white;
+    border-radius: 5px;
+
+    @include utils.only-hover {
+        color: var(--main100);
+    }
+
+    &:active {
+        color: var(--main150);
+    }
+
+    &[disabled],
+    &.disabled {
+        color: white;
+        background-color: var(--base140);
+    }
+
+    &.button--arrow {
+        min-width: 185px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &::after {
+            content: '';
+            @include utils.bg-defaults(auto);
+            @include utils.square(15px);
+            filter: var(--filter-base100);
+            background-image: url('assets/icons/double-arrow.svg');
+        }
+
+        @include utils.only-hover {
+            &::after {
+                filter: var(--filter-main100);
+            }
+        }
+
+        &:active {
+            &::after {
+                filter: var(--filter-main150);
+            }
+        }
+
+        &[disabled],
+        &.disabled {
+            &::after {
+                filter: var(--filter-white);
+            }
+        }
+    }
+
+    &.button--fill {
+        color: white;
+        background-color: var(--main100);
+
+        @include utils.only-hover {
+            background-color: hsla(2, 66%, 29%, 0.85);
+        }
+
+        &:active {
+            background-color: hsla(2, 66%, 29%, 0.8);
+        }
+
+        &.button--arrow {
+            &::after {
+                filter: var(--filter-white);
+            }
+        }
+    }
+}

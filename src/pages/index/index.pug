@@ -1,10 +1,5 @@
 extends layout/page
-
-block append head
-    link(href=require('./styles.scss'), rel='stylesheet')
+include layout/utils
 
 block append main
-    section.section
-
-block append scripts
-    script(src=require('./main.ts'))
+    include components/main-hero/main-hero

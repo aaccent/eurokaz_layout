@@ -1,0 +1,23 @@
+@use 'styles/utils';
+
+.header {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__right,
+    .header__left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header__logo-container {
+        display: flex;
+        //background-color: ;
+    }
+}

@@ -1,5 +1,14 @@
 /**  @type {Array<keyof import('CSS').StandardShorthandProperties>}*/
-const shorthandProps = ['padding', 'margin', 'inset', 'border-radius', 'border-width', 'gap', 'grid-template-columns']
+const shorthandProps = [
+    'padding',
+    'margin',
+    'inset',
+    'border-radius',
+    'border-width',
+    'gap',
+    'grid-template-columns',
+    'grid-auto-rows',
+]
 
 /**  @type {Array<keyof import('CSS').StandardLonghandProperties>}*/
 const longHandProps = [

@@ -25,10 +25,11 @@ function convertValue(rawValue, mod = 1) {
         return rawValue
     }
 
-    return `calc(${value} * ${mod} * var(--screen-delta) + ${value}${unit})`
+    return `calc(${value * mod} * var(--screen-delta) + ${value}${unit})`
 }
 
 const cssVariableRegex = /var\((--[\w_-]+)\)/
+const fontSizeRegex = /(?<value>[\d.]+)(?<unit>rem|rm|px)/
 
 /**
  * @param {import('postcss').Declaration} decl
@@ -50,10 +51,13 @@ function declHandler(decl) {
         return convertValue(decl.value, globalOpts.defaultMod)
     }
 
-    if (decl.prop === 'font') {
-        if (!cssVariableRegex.test(decl.value)) return
+    if (decl.prop === 'font' && cssVariableRegex.test(decl.value)) {
         const fontVariableName = decl.value.match(cssVariableRegex)[1]
         const fontSizeVariableName = allVariablesValues[fontVariableName]?.match(cssVariableRegex)?.[1]
+
+        if (allVariablesValues[fontVariableName]?.match(fontSizeRegex)) {
+            fontVars.push(fontVariableName)
+        }
 
         if (fontSizeVariableName && !fontVars.includes(fontSizeVariableName)) {
             fontVars.push(fontSizeVariableName)
@@ -236,7 +240,7 @@ function pluginMain(root) {
         const rootParent = decl.parent.parent
         if (!checkParent(rootParent)) return
 
-        decl.value = convertValue(decl.value, globalOpts.fontSizeMod)
+        decl.value = decl.value.replace(fontSizeRegex, (string) => convertValue(string, globalOpts.fontSizeMod))
 
         if (globalOpts.limitMediaWidth && !parentIsMedia(rootParent)) {
             rootRule.append(decl)

@@ -1,0 +1,23 @@
+@mixin text-header100() {
+    font: var(--font-header100);
+    text-transform: uppercase;
+}
+@mixin text-header200() {
+    font: var(--font-header200);
+    letter-spacing: -0.04rem;
+    text-transform: uppercase;
+}
+@mixin text-header300() {
+    font: var(--font-header300);
+    letter-spacing: -0.04rem;
+    text-transform: uppercase;
+}
+@mixin text-header400() {
+    font: var(--font-header400);
+    letter-spacing: -0.04;
+    text-transform: uppercase;
+}
+@mixin text-base500($text-transform) {
+    font: var(--font-base500);
+    text-transform: #{$text-transform};
+}

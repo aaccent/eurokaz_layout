@@ -1,3 +1,4 @@
+@use 'swiper';
 @use 'general/_preflight.css';
 @use 'general/reset';
 @use 'general/variables';
@@ -9,7 +10,10 @@
 
 // Ui
 @use 'ui/buttons/close-btn';
+@use 'ui/buttons/button';
 
 // Page
 @use 'layout/header/header';
 @use 'layout/footer/footer';
+
+@use 'components/main-hero/main-hero';
