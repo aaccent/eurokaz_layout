@@ -12,9 +12,9 @@ void (function () {
         fadeEffect: {
             crossFade: true,
         },
-        autoplay: {
-            delay: 3000,
-        },
+        // autoplay: {
+        //     delay: 3000,
+        // },
         allowTouchMove: false,
         pagination: {
             el: '.main-hero__pagination',

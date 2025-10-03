@@ -146,6 +146,10 @@
         padding: 18px 20px;
         background-color: var(--bg-light);
         border-radius: 5px;
+
+        &:hover {
+            color: var(--main100);
+        }
     }
 
     &__nav {
@@ -266,6 +270,10 @@
             backdrop-filter: blur(24.2px);
             color: white;
             background-color: hsl(0, 0%, 100%, 10%);
+
+            &:hover {
+                background-color: hsla(0, 0%, 100%, 0.2);
+            }
         }
 
         .header__nav-item {

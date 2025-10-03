@@ -1,2 +1,54 @@
+include layout/utils
+-
+    var footerMenu = [
+        {
+            title: 'Меню:',
+            list: ['Кейсы', 'О компании', 'Блог', 'Контакты']
+        },{
+            id: 'contacts',
+            title: 'Контактные данные:',
+            list: ['8 (976) 543 21 00', 'mail@example.com', 'Казахстан, г. Алматы, ул. Панфилова, д. 98, оф. 607 ', 'Пн - Пт с 08:00 до 20:00', '']
+        },{
+            id:'socials',
+            title: 'Социальные сети:',
+            list: ['ВКонтакте', 'Telegram', 'WhatsApp', 'YouTube']
+        }, {
+            title: 'Услуги:',
+            list: ['Транспортировка грузов', 'Складское хранение и обработка', 'Таможенное оформление', 'Юридическое сопровождение', 'Подбор персонала', 'Аутсорсинг бухгалтерии']
+        }, {
+            title: 'Направления:',
+            list: ['Казахстан — Россия', 'Китай — Казахстан — Россия', 'Европа — Казахстан — Россия', 'США — Казахстан — Россия']
+        }, {
+            title: 'Вид транспорта:',
+            list: ['Автомобильные перевозки', 'Железнодорожные перевозки', 'Авиационные перевозки', 'Морские перевозки']
+        },
+    ]
+
+
+
 footer.footer
     .container
+        .footer__content
+            .footer__left
+                +anchor('/')
+                    +img(require('assets/icons/logo.svg')).footer__logo
+                .footer__text!= 'Логистика, на которую <br>можно положиться'
+                button.footer__button.button.button--arrow Заказать звонок
+            .footer__menu
+                each item in footerMenu
+                    .footer__menu-block
+                        .footer__menu-title= item.title
+                        ul.footer__menu-list
+                            each str, index in item.list
+                                if item.id === 'contacts'
+                                    li.footer__menu-item= str
+                                else
+                                    li.footer__menu-item
+                                        +anchor= str
+        .footer__copyrights
+            .footer__years © 2000 - 2025 ООО «ЕвроКаз»
+            +anchor.footer__policy Политика конфиденциальности
+            .footer__dev!= 'Разработано в агентстве '
+                |
+                +anchor('https://www.aaccent.ru/') Акцент на результат
+            button.footer__up-button
