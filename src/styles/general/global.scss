@@ -8,7 +8,7 @@ html {
 
 .container {
     margin: 0 auto;
-    max-width: 1600px;
+    max-width: var(--container-width);
 }
 
 .main-wrapper {
@@ -29,6 +29,7 @@ html {
 
 body {
     overflow-x: clip;
+    font: var(--text-base400);
 }
 
 html.disable-scroll {

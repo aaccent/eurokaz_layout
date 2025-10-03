@@ -1,6 +1,6 @@
 include layout/utils
 -
-    var menu = [
+    var nav = [
         {
             name: 'Направления',
             submenu: ['Казахстан — Россия', 'Китай — Казахстан — Россия', 'Европа — Казахстан — Россия', 'США — Казахстан — Россия']
@@ -11,7 +11,23 @@ include layout/utils
             name: 'Услуги',
             submenu: ['Транспортировка грузов', 'Складское хранение и обработка', 'Таможенное оформление', 'Юридическое сопровождение', 'Подбор персонала', 'Аутсорсинг бухгалтерии']
         },{
-            name: 'Кесы',
+            name: 'Кейсы',
+        },
+    ]
+
+    var menu = [
+        {
+            title: 'Меню:',
+            list: ['Кейсы','О компании','Блог','Контакты']
+        },{
+            title: 'Услуги:',
+            list: ['Транспортировка грузов','Складское хранение и обработка','Таможенное оформление','Юридическое сопровождение', 'Подбор персонала', 'Аутсорсинг бухгалтерии']
+        },{
+            title: 'Направления:',
+            list: ['Казахстан — Россия','Китай — Казахстан — Россия','Европа — Казахстан — Россия','США — Казахстан — Россия']
+        },{
+            title: 'Вид транспорта:',
+            list: ['Автомобильные перевозки','Железнодорожные перевозки','Авиационные перевозки','Морские перевозки']
         },
     ]
 
@@ -19,16 +35,31 @@ header.header
     .container
         .header__left
             .header__logo-container
-                +img(require('assets/icons/logo.svg')).header__logo
+                +anchor('/').header__link
+                    +img(require('assets/icons/logo.svg')).header__logo
                 .header__menu-button Меню
-            +anchor.header__tel(tel='8 (976) 543 21 00') 8 (976) 543 21 00
+                    .header__menu-icon
+            +anchor("tel:89765432100").header__tel 8 (976) 543 21 00
         .header__right
             nav
-                ul.header__menu-list
-                    each item in menu
-                        li.header__menu-item= item.name
+                ul.header__nav
+                    each item in nav
+                        li.header__nav-item= item.name
                             if item.submenu
                                 ul.header__submenu
                                     each sub in item.submenu
-                                        li.header__submenu-item= sub
+                                        li.header__submenu-item
+                                            +anchor= sub
             button.button.header__button(data-action='popup', data-popup='call-popup') Получить консультацию
+        .header__menu
+            each item in menu
+                .header__menu-block
+                    .header__menu-title= item.title
+                    ul.header__menu-list
+                        each listItem in item.list
+                            li.header__menu-item
+                                +anchor('#')= listItem
+        .header__burger
+            span
+            span
+            span
