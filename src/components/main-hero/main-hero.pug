@@ -17,4 +17,14 @@ include layout/utils
     .swiper-wrapper
         each slide in slides
             .main-hero__slide.swiper-slide
-                +img(slide.image)
+                picture
+                    source(srcset=require('assets/content/main-hero/2.jpg'), media='(max-width:1000px)')
+                    +img(slide.image)
+                .main-hero__slide-content
+                    h1.main-hero__slide-title= slide.title
+                    .main-hero__slide-description= slide.description
+    .main-hero__controls
+        .main-hero__navigation
+            button.main-hero__navigation-prev
+            button.main-hero__navigation-next
+        .main-hero__pagination
