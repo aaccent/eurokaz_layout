@@ -1,6 +1,6 @@
 import Swiper from 'swiper'
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules'
-
+import { gsap } from 'gsap'
 void (function () {
     const mainHeroSlider = document.querySelector<HTMLElement>('.main-hero.swiper')
     if (!mainHeroSlider) return
@@ -28,4 +28,10 @@ void (function () {
             nextEl: '.main-hero__navigation-next',
         },
     })
+
+    const mainHeroContent = mainHeroSlider.querySelector('.main-hero__slide-content')
+    console.log(mainHeroContent)
+    if (!mainHeroContent) return
+
+    gsap.to('.main-hero__slide-content', { rotation: 27, x: 100, duration: 1 })
 })()
