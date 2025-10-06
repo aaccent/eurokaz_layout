@@ -1,0 +1,102 @@
+@use 'styles/utils';
+
+.map {
+    position: relative;
+    height: 1064px;
+    overflow: hidden;
+    background-color: var(--bg-light);
+
+    &__title-wrapper {
+        position: absolute;
+        z-index: 1;
+        top: 160px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-top: 25px;
+        width: 100%;
+        justify-content: start;
+        border-top: 1px dashed var(--base120);
+    }
+
+    &__subtitle {
+        width: 100%;
+        max-width: 868px;
+    }
+
+    &__image {
+        object-position: center;
+        object-fit: contain;
+        position: absolute;
+        left: 54%;
+        transform: translateX(-50%);
+        max-width: 2882px;
+
+        &-wrapper {
+            position: relative;
+            top: 245px;
+            height: calc(1064px - 245px);
+            overflow: hidden;
+        }
+    }
+
+    &__control {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .map {
+        height: 643px;
+
+        &__title {
+            margin-bottom: 20px;
+            justify-content: center;
+            &-wrapper {
+                position: static;
+                transform: none;
+                margin-top: 80px;
+                padding-top: 15px;
+            }
+        }
+
+        &__subtitle {
+            text-align: center;
+        }
+
+        &__image {
+            left: 0;
+            transform: none;
+            width: 100%;
+            max-width: 320px;
+            &-wrapper {
+                top: 0;
+                margin-top: 48px;
+                height: 268px;
+            }
+        }
+
+        &__control {
+            gap: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+
+            &--plus,
+            &--minus {
+                font-size: 1.8rem;
+                opacity: 0;
+                visibility: hidden;
+                @include utils.square(32px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--main100);
+                background-color: white;
+                border-radius: 2px;
+                border: 1px solid var(--main110);
+            }
+        }
+    }
+}
