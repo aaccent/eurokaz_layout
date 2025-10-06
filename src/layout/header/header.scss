@@ -50,6 +50,7 @@
 
     &__menu {
         position: absolute;
+        z-index: -1;
         top: calc(100% - 13px);
         left: 0;
         padding: 40px;
@@ -126,6 +127,7 @@
         }
 
         &._opened {
+            z-index: 2;
             opacity: 1;
             visibility: visible;
             transition:

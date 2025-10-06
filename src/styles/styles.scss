@@ -11,9 +11,11 @@
 // Ui
 @use 'ui/buttons/close-btn';
 @use 'ui/buttons/button';
+@use 'ui/content';
 
 // Page
 @use 'layout/header/header';
 @use 'layout/footer/footer';
 
 @use 'components/main-hero/main-hero';
+@use 'components/about-block/about-block';

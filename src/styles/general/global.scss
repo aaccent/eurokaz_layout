@@ -46,14 +46,42 @@ html.disable-scroll {
     box-sizing: border-box !important;
 }
 
-.content {
-    p + p {
-        margin-top: 15px;
+.section {
+    &__title {
+        display: flex;
+        align-items: center;
+        color: var(--base160);
+        font: var(--text-base500);
+        text-transform: uppercase;
+
+        &-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+
+            .section__title {
+                width: 100%;
+                max-width: 402px;
+                text-wrap: nowrap;
+            }
+            @media only screen and (max-width: 1000px) {
+                flex-direction: column;
+            }
+        }
+
+        &::before {
+            content: '';
+            @include utils.square(6px);
+            margin-right: 12px;
+            background-color: var(--main100);
+            @media only screen and (max-width: 1000px) {
+                margin-right: 8px;
+            }
+        }
     }
 
-    @media only screen and (max-width: utils.$tablet1200) {
-        p + p {
-            margin-top: 12px;
-        }
+    &__subtitle {
+        font: var(--font-header200);
+        text-transform: uppercase;
     }
 }

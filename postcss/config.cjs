@@ -40,6 +40,7 @@ const longHandProps = [
     '--diameter',
     '--size',
     '--container-width',
+    '--decor-margin',
 ]
 
 const targetProps = [...shorthandProps, ...longHandProps, 'font', 'font-size']

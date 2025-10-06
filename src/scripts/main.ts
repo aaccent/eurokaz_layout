@@ -3,3 +3,4 @@ import '@/layout/header/header'
 import '@/layout/footer/footer'
 
 import '@/components/main-hero/main-hero'
+import '@/components/about-block/about-block'
