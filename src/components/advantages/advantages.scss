@@ -1,0 +1,139 @@
+@use 'styles/utils';
+
+.advantages {
+    position: relative;
+    margin-bottom: 160px;
+    padding-top: 220px;
+    overflow: hidden;
+
+    &__title {
+        margin-bottom: 25px;
+        justify-content: center;
+    }
+
+    &__subtitle {
+        margin: 0 auto 30px;
+        width: 100%;
+        max-width: 872px;
+        text-align: center;
+    }
+
+    &__text {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 800px;
+        color: var(--base160);
+        text-align: center;
+    }
+
+    &__list {
+        margin-top: 80px;
+        height: 500px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__item {
+        padding: 30px;
+        width: 100%;
+        max-width: 393px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font: var(--text-base200);
+        background-color: var(--bg-light);
+
+        &-icon {
+            filter: var(--filter-main100);
+
+            &-wrapper {
+                @include utils.square(100px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+            }
+        }
+
+        &-text {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        &:hover {
+            color: white;
+            background-color: var(--main100);
+
+            .advantages__item-icon {
+                filter: var(--filter-white);
+
+                &-wrapper {
+                    background-color: var(--main190);
+                }
+            }
+        }
+    }
+
+    &__bg {
+        inset: 0;
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .advantages {
+        margin-bottom: 80px;
+        padding-top: 159px;
+
+        .container {
+            background-color: white;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        &__title {
+            margin-bottom: 20px;
+        }
+
+        &__subtitle {
+            margin-bottom: 10px;
+        }
+
+        &__list {
+            gap: 10px;
+            margin-top: 48px;
+            height: fit-content;
+            flex-direction: column;
+        }
+
+        &__item {
+            gap: 15px;
+            padding: 15px;
+            flex-direction: row;
+            align-items: center;
+            &-icon {
+                max-width: 32px;
+                max-height: 30px;
+                &-wrapper {
+                    @include utils.square(64px);
+                    padding: 0 21px;
+                }
+            }
+
+            &-text {
+                font: var(--text-base300);
+            }
+        }
+
+        &__bg {
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 375px;
+        }
+    }
+}
