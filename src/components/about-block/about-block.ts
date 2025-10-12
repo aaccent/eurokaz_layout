@@ -57,7 +57,7 @@ void (function () {
     //     .addLabel('description')
     //     .fromTo(description, { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, 'title+=1')
 
-    const numbers = aboutBlock.querySelectorAll<HTMLElement>('.about-block__numbers-item span')
+    const numbers = aboutBlock.querySelectorAll<HTMLElement>('.about-block__numbers-item span[data-to]')
     numbers.forEach((num) => {
         const final = Number(num.dataset.to) || 50
         const obj = { val: 0 }

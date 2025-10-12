@@ -4,7 +4,13 @@
     position: relative;
     height: 1064px;
     overflow: hidden;
-    background-color: var(--bg-light);
+    background-color: #dbdbdc;
+
+    #map {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+    }
 
     &__title-wrapper {
         position: absolute;
@@ -21,22 +27,6 @@
     &__subtitle {
         width: 100%;
         max-width: 868px;
-    }
-
-    &__image {
-        object-position: center;
-        object-fit: contain;
-        position: absolute;
-        left: 54%;
-        transform: translateX(-50%);
-        max-width: 2882px;
-
-        &-wrapper {
-            position: relative;
-            top: 245px;
-            height: calc(1064px - 245px);
-            overflow: hidden;
-        }
     }
 
     &__control {
@@ -61,18 +51,6 @@
 
         &__subtitle {
             text-align: center;
-        }
-
-        &__image {
-            left: 0;
-            transform: none;
-            width: 100%;
-            max-width: 320px;
-            &-wrapper {
-                top: 0;
-                margin-top: 48px;
-                height: 268px;
-            }
         }
 
         &__control {

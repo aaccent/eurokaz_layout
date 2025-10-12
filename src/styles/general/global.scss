@@ -85,3 +85,9 @@ html.disable-scroll {
         text-transform: uppercase;
     }
 }
+
+.mapboxgl-control-container {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}

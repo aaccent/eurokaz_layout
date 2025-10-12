@@ -1,14 +1,11 @@
 include layout/utils
 
 +section({container:false}).map
+    #map
     .map__title-wrapper.section__title-wrapper.container
         .map__title.section__title география по миру
         .map__subtitle.section__subtitle Мы выстраиваем надёжные логистические цепочки, соединяя Россию с миром через Казахстан
 
-    .map__image-wrapper
-        picture
-            source(srcset=require('assets/static/mapOnMain_mobile.svg'), media='(max-width: 1000px)')
-            +img(require('assets/static/mapOnMain.png')).map__image
-        .map__control
-            .map__control--minus —
-            .map__control--plus +
+//.map__control
+//    .map__control--minus —
+//    .map__control--plus +
