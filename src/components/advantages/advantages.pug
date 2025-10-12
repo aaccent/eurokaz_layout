@@ -16,14 +16,14 @@ include layout/utils
         },
     ]
 
-+section({container:false}).advantages
++section({container:false}).advantages.section__trigger
     picture
         source(srcset=require('assets/icons/bg-circle_mobile.svg'), media='(max-width: 1000px)')
         +img(require('assets/icons/bg-circle.svg')).advantages__bg
     .container
         .advantages__title.section__title Наши преимущества
         .advantages__subtitle.section__subtitle!= 'Надёжность — не обещание. <br>Это правило нашей работы'
-        .advantages__text Вы можете на нас положиться, потому что за каждым решением стоит команда экспертов, для которой надёжность — не опция, а стандарт
+        .advantages__text.animated-content Вы можете на нас положиться, потому что за каждым решением стоит команда экспертов, для которой надёжность — не опция, а стандарт
         ul.advantages__list
             each item in advantages
                 li.advantages__item

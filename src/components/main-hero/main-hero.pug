@@ -15,12 +15,13 @@ include layout/utils
 
 +section({container:false}).main-hero.swiper
     .swiper-wrapper
-        each slide in slides
-            .main-hero__slide.swiper-slide
+        each slide, index in slides
+            .main-hero__slide.swiper-slide(data-id=`${index}`)
                 picture
                     source(srcset=require('assets/content/main-hero/2.jpg'), media='(max-width:1000px)')
                     +img(slide.image)
                 .main-hero__slide-content
+                    .line
                     h1.main-hero__slide-title= slide.title
                     .main-hero__slide-description= slide.description
     .main-hero__controls

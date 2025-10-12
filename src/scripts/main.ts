@@ -1,4 +1,5 @@
 import '@/features/popup/popup'
+import '@/features/scroll'
 import '@/layout/header/header'
 import '@/layout/footer/footer'
 

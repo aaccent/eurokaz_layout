@@ -1,11 +1,20 @@
 @use 'styles/utils';
 
 .about-block {
+    position: relative;
     margin: 160px 0;
+
+    .line--dashed {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: var(--container-width);
+        border-top: 1px dashed hsl(0, 33%, 2%, 20%);
+    }
 
     &__title-wrapper {
         padding-top: 25px;
-        border-top: 1px dashed hsl(0, 33%, 2%, 20%);
     }
     &__description {
         width: 100%;
@@ -32,6 +41,10 @@
 
             span {
                 font: var(--big-text);
+
+                &.plus::after {
+                    content: '+';
+                }
             }
         }
 

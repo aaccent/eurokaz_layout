@@ -1,9 +1,10 @@
 @use 'styles/utils';
 
 .header {
-    position: sticky;
+    position: fixed;
     z-index: 100;
     top: 0;
+    width: 100%;
     background-color: white;
 
     &:has(.header__menu._opened) {
