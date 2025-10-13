@@ -3,9 +3,9 @@ void (function () {
     const video = videoBlock?.querySelector<HTMLVideoElement>('.video-block video')
     if (!videoBlock || !video) return
 
-    const playButton = document.querySelector('.video-block__play-button ')
+    const wrapper = videoBlock.querySelector('.video-block__wrapper')
 
-    playButton?.addEventListener('click', () => {
+    wrapper?.addEventListener('click', () => {
         video.play()
         videoBlock.classList.add('_playing')
     })
