@@ -1,0 +1,70 @@
+include layout/utils
+-
+    var list = [
+        {
+            title: 'Перевозка машины класса “Люкс”из Европы',
+            type: 'Объект',
+            text: '',
+            image: '',
+            icon: ''
+        },{
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            type: 'Услуга',
+            text: '',
+            image: '',
+            icon: ''
+        },{
+            title: 'Перевозка машины класса “Люкс”из Европы',
+            type: 'Услуга',
+            text: '',
+            image: '',
+            icon: ''
+        },{
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            type: 'Объект',
+            text: '',
+            image: '',
+            icon: ''
+        },{
+            title: 'Перевозка машины класса “Люкс”из Европы',
+            type: 'Услуга',
+            text: '',
+            image: '',
+            icon: ''
+        },{
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            type: 'Объект',
+            text: '',
+            image: '',
+            icon: ''
+        },{
+            title: 'Перевозка машины класса “Люкс”из Европы',
+            type: 'Услуга',
+            text: '',
+            image: '',
+            icon: ''
+        },{
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            type: 'Объект',
+            text: '',
+            image: '',
+            icon: ''
+        },
+    ]
+
+.cases
+    .container
+        ul.cases__list
+            each item, index in list
+                li.cases__item(data-item=`${index+1}`)
+                    +anchor
+                        .cases__item-number= `0${index + 1}`
+                        .cases__item-title= item.title
+                            .cases__item-type= item.type
+                    .cases__item-arrow
+                    .cases__item-content(data-content=`${index + 1}`)
+                        +img(item.img || require('assets/cases-list/1.png')).cases__item-image
+                        .cases__item-text= item.text || 'Медицинские товары'
+                            +img(item.icon || require('assets/icons/med.svg')).cases__item-icon
+    +anchor.cases__button Cмотреть все
+        .cases__button-icon

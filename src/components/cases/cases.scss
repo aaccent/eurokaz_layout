@@ -1,0 +1,219 @@
+@use 'styles/utils';
+
+.cases {
+    margin-top: 75px;
+    padding-bottom: 160px;
+    border-top: 1px solid var(--base120);
+
+    &__list {
+        position: relative;
+        padding-left: 405px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item {
+        border-bottom: 1px solid var(--base120);
+        a {
+            gap: 178px;
+            padding: 20px 0;
+            display: flex;
+
+            &:hover {
+                color: var(--main100);
+                border-color: var(--base100);
+            }
+        }
+
+        &:has(a:hover) {
+            .cases__item-number {
+                color: var(--base100);
+            }
+        }
+
+        &-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: 60px;
+            opacity: 0;
+            visibility: hidden;
+            transition:
+                visibility 300ms linear,
+                opacity 300ms linear;
+
+            &._visible {
+                opacity: 1;
+                visibility: visible;
+                transition:
+                    visibility 300ms linear,
+                    opacity 300ms linear;
+            }
+        }
+
+        &-image {
+            object-fit: contain;
+            object-position: center;
+            margin-bottom: 50px;
+            width: 280px;
+            height: 280px;
+        }
+
+        &-text {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: start;
+            align-items: center;
+        }
+
+        &-icon {
+            margin-right: 10px;
+            padding: 10px;
+            width: 34px;
+            height: 34px;
+            background-color: var(--main108);
+            border-radius: 5px;
+        }
+
+        &-number {
+            color: var(--base120);
+        }
+
+        &-title {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &-type {
+            color: var(--base120);
+        }
+    }
+
+    &__button {
+        gap: 10px;
+        margin-top: 60px;
+        margin-left: 405px;
+        display: flex;
+        align-items: center;
+
+        &-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--main105);
+            border-radius: 2px;
+
+            &::after {
+                content: '';
+                @include utils.bg-defaults(auto);
+                filter: var(--filter-main100);
+                width: 7px;
+                height: 7px;
+                background-image: url('assets/icons/plus.svg');
+            }
+        }
+
+        &-arrow {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .projects:has(.cases) {
+        padding-top: 80px;
+
+        .projects__title {
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .projects__subtitle {
+            text-align: center;
+        }
+    }
+
+    .cases {
+        margin-top: 30px;
+        padding-bottom: 80px;
+
+        &__list {
+            padding: 0;
+        }
+
+        &__button {
+            margin-top: 30px;
+            margin-left: 0;
+            justify-content: center;
+        }
+
+        &__item {
+            position: relative;
+            a {
+                gap: 10px;
+                padding: 15px 0;
+                width: fit-content;
+            }
+
+            &-title {
+                gap: 5px;
+                width: 100%;
+                max-width: 240px;
+                flex-direction: column;
+            }
+
+            &-image {
+                margin-top: 20px;
+                width: 240px;
+                height: 200px;
+            }
+
+            &-icon {
+                padding: 9px;
+                width: 28px;
+                height: 28px;
+            }
+
+            &-arrow {
+                position: absolute;
+                top: 15px;
+                right: 0;
+                min-width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: var(--main105);
+
+                &::after {
+                    content: '';
+                    width: 10px;
+                    height: 10px;
+                    @include utils.bg-defaults(auto);
+                    filter: var(--filter-main100);
+                    background-image: url('assets/icons/arrow.svg');
+                }
+            }
+
+            &-content {
+                position: static;
+                margin: 0;
+                height: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                overflow: hidden;
+
+                &._visible {
+                    margin-top: 40px;
+                    padding-bottom: 15px;
+                    height: fit-content;
+                }
+            }
+        }
+    }
+}
