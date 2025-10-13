@@ -2,6 +2,8 @@ import { Map, LngLatBounds } from 'mapbox-gl'
 import bezier from '@turf/bezier'
 import { lineString } from '@turf/helpers'
 import * as turf from '@turf/turf'
+import square from '@/assets/icons/square.png'
+import circle from '@/assets/icons/circle.png'
 
 const map = new Map({
     container: 'map',
@@ -152,7 +154,7 @@ const ways: WaysRecord = [
 
 map.on('load', () => {
     map.resize()
-    Promise.all([loadImage('./assets/icons/square.png'), loadImage('./assets/icons/circle.png')])
+    Promise.all([loadImage(square), loadImage(circle)])
         .then(([squareImg, circleImg]) => {
             /* 1. FeatureCollection для каждого стиля */
             const solidFeats: GeoJSON.Feature<GeoJSON.LineString>[] = []
