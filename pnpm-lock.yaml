@@ -11,10 +11,10 @@ importers:
       '@dotenvx/dotenvx':
         specifier: ^1.31.0
         version: 1.31.0
+      '@turf/bezier':
+        specifier: ^4.7.3
+        version: 4.7.3
       '@turf/bezier-spline':
-        specifier: ^7.2.0
-        version: 7.2.0
-      '@turf/great-circle':
         specifier: ^7.2.0
         version: 7.2.0
       '@turf/helpers':
@@ -507,6 +507,10 @@ packages:
   '@turf/bezier-spline@7.2.0':
     resolution: {integrity: sha512-7BPkc3ufYB9KLvcaTpTsnpXzh9DZoENxCS0Ms9XUwuRXw45TpevwUpOsa3atO76iKQ5puHntqFO4zs8IUxBaaA==}
 
+  '@turf/bezier@4.7.3':
+    resolution: {integrity: sha512-t7wO3BeYRkMqM0nfweUzvFEs/JXpGdjsMIKPDMP5Rhohd5ZETMlthGels6Fo8KyC7OTm+0PQcnu67WLErjHsIA==}
+    deprecated: Module has been renamed to @turf/bezier-spline
+
   '@turf/boolean-clockwise@7.2.0':
     resolution: {integrity: sha512-0fJeFSARxy6ealGBM4Gmgpa1o8msQF87p2Dx5V6uSqzT8VPDegX1NSWl4b7QgXczYa9qv7IAABttdWP0K7Q7eQ==}
 
@@ -632,6 +636,9 @@ packages:
 
   '@turf/great-circle@7.2.0':
     resolution: {integrity: sha512-n30OiADyOKHhor0aXNgYfXQYXO3UtsOKmhQsY1D89/Oh1nCIXG/1ZPlLL9ZoaRXXBTUBjh99a+K8029NQbGDhw==}
+
+  '@turf/helpers@4.7.3':
+    resolution: {integrity: sha512-hk5ANVazb80zK6tjJYAG76oCRTWMQo6SAFu5E1dVnlb2kT3FHLoPcOB9P11duwDafMwywz24KZ+FUorB5e728w==}
 
   '@turf/helpers@7.2.0':
     resolution: {integrity: sha512-cXo7bKNZoa7aC7ydLmUR02oB3IgDe7MxiPuRz3cCtYQHn+BJ6h1tihmamYDWWUlPHgSNF0i3ATc4WmDECZafKw==}
@@ -3541,6 +3548,10 @@ snapshots:
       '@types/geojson': 7946.0.16
       tslib: 2.8.1
 
+  '@turf/bezier@4.7.3':
+    dependencies:
+      '@turf/helpers': 4.7.3
+
   '@turf/boolean-clockwise@7.2.0':
     dependencies:
       '@turf/helpers': 7.2.0
@@ -3901,6 +3912,8 @@ snapshots:
       '@turf/helpers': 7.2.0
       '@turf/invariant': 7.2.0
       '@types/geojson': 7946.0.16
+
+  '@turf/helpers@4.7.3': {}
 
   '@turf/helpers@7.2.0':
     dependencies:

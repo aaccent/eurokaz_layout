@@ -1,7 +1,7 @@
-import { Map, LngLatBounds, Marker } from 'mapbox-gl'
-import bezierSpline from '@turf/bezier-spline'
+import { Map, LngLatBounds } from 'mapbox-gl'
+import bezier from '@turf/bezier'
+import { lineString } from '@turf/helpers'
 import * as turf from '@turf/turf'
-import greatCircle from '@turf/great-circle'
 
 const map = new Map({
     container: 'map',
@@ -25,113 +25,218 @@ map.setMaxBounds([
     [180, 85.051129], // северо-восток
 ])
 
-const points = [
-    { type: 'square', coords: [-75.32999496209419, 43.116745891485785] },
-    [-1.6520186369035732, 48.53354914796627],
-    [49.12822560788961, 55.787670596939314],
-    [21.429563233787306, 54.757491332086275],
-    [34.10776519290381, 59.8504702244197],
-    [57.767807185991664, 47.46629784565948],
-    [92.92405331828253, 40.25557522514172],
-    [108.04123915516756, 57.28582947098475],
-]
-
 type PointRecord = {
     type: 'square' | 'circle'
     coords: [number, number] // [lng, lat]
 }
 
-// 2. исходный массив
 const pointsData: PointRecord[] = [
-    { type: 'square', coords: [-75.32999496209419, 43.116745891485785] },
-    { type: 'square', coords: [2.202296089220894, 48.7495760863345] },
-    { type: 'square', coords: [37.227341184922, 55.667670562189166] },
-    { type: 'square', coords: [64.89984343546354, 48.219399654357545] },
-    { type: 'square', coords: [87.49122200472455, 37.83257712216818] },
-    { type: 'circle', coords: [47.44679237838445, 44.56378861141133] },
-    { type: 'circle', coords: [20.45283338295273, 54.708238618132526] },
-    { type: 'circle', coords: [30.364143128759206, 59.922379120921796] },
-    { type: 'circle', coords: [66.7273367129539, 57.15326096772635] },
-    { type: 'circle', coords: [78.87794170231328, 66.64046266100534] },
-    { type: 'circle', coords: [84.50294108347981, 55.560494433103436] },
+    { type: 'square', coords: [-75.32999496209419, 43.116745891485785] }, //сша
+    { type: 'square', coords: [2.202296089220894, 48.7495760863345] }, //европа
+    { type: 'square', coords: [37.227341184922, 55.667670562189166] }, //мск
+    { type: 'square', coords: [64.89984343546354, 48.219399654357545] }, //КАзаахстан
+    { type: 'square', coords: [87.49122200472455, 37.83257712216818] }, //Китай
+    { type: 'circle', coords: [48.022939, 46.277445] }, // рф юг
+    { type: 'circle', coords: [20.45283338295273, 54.708238618132526] }, //калининград
+    { type: 'circle', coords: [30.364143128759206, 59.922379120921796] }, //спб
+    { type: 'circle', coords: [61.797519, 58.686574] }, //рф урал
+    { type: 'circle', coords: [78.87794170231328, 66.64046266100534] }, //рф вверх далеко
+    { type: 'circle', coords: [84.50294108347981, 55.560494433103436] }, //рф вниз далеко
+]
+
+type WaysRecord = {
+    deg?: number
+    bend?: number
+    type: 'solid' | 'dashed'
+    start: [number, number]
+    way: [number, number][]
+    end: [number, number]
+}[]
+
+const ways: WaysRecord = [
+    //мск-казазстан
+    {
+        type: 'dashed',
+        start: [37.227341184922, 55.667670562189166],
+        way: [
+            [48.647841, 49.886451],
+            [52.906202, 46.825436],
+        ],
+        end: [64.89984343546354, 48.219399654357545],
+    },
+    //мск-юг
+    {
+        type: 'solid',
+        start: [37.227341184922, 55.667670562189166],
+        way: [[42.022057, 49.201448]],
+        end: [48.022939, 46.277445],
+    },
+    //мск-калининград
+    {
+        type: 'solid',
+        start: [37.227341184922, 55.667670562189166],
+        way: [
+            [26.038737, 59.660805],
+            [20.242588, 56.600327],
+        ],
+        end: [20.45283338295273, 54.708238618132526],
+    },
+    //мск-спб
+    {
+        type: 'solid',
+        start: [37.227341184922, 55.667670562189166],
+        way: [[35.60761, 59.149882]],
+        end: [30.364143128759206, 59.922379120921796],
+    },
+    //мск-рф-урал
+    {
+        type: 'solid',
+        start: [37.227341184922, 55.667670562189166],
+        way: [[49.652915, 52.344569]],
+        end: [61.797519, 58.686574],
+    },
+    // мск-вверх далеко
+    {
+        type: 'solid',
+        start: [37.227341184922, 55.667670562189166],
+        way: [
+            [62.407549, 59.660805],
+            [72.214417, 65.925753],
+        ],
+        end: [78.87794170231328, 66.64046266100534],
+    },
+    //мск-вниз-далеко
+    {
+        type: 'solid',
+        start: [37.227341184922, 55.667670562189166],
+        way: [
+            [64.571652, 61.707452],
+            [92.007842, 63.187825],
+        ],
+        end: [84.50294108347981, 55.560494433103436],
+    },
+    //казахстан-китай
+    {
+        type: 'dashed',
+        start: [64.89984343546354, 48.219399654357545],
+        way: [[83.187057, 45.880449]],
+        end: [87.49122200472455, 37.83257712216818],
+    },
+    //казахстан-европа
+    {
+        deg: 60,
+        bend: -0.2,
+        type: 'dashed',
+        start: [64.89984343546354, 48.219399654357545],
+        way: [
+            [54.563909, 42.736926],
+            [27.205644, 42.060509],
+            [12.276169, 45.239119],
+        ],
+        end: [2.202296089220894, 48.7495760863345],
+    },
+    //казахстан-сша
+    {
+        deg: 60,
+        bend: -0.57,
+        type: 'dashed',
+        start: [64.89984343546354, 48.219399654357545],
+        way: [
+            [51.068076, 38.05458],
+            [11.373236, 33.931966],
+            [-42.724156, 28.369652],
+        ],
+        end: [-75.32999496209419, 43.116745891485785],
+    },
 ]
 
 map.on('load', () => {
     map.resize()
     Promise.all([loadImage('./assets/icons/square.png'), loadImage('./assets/icons/circle.png')])
         .then(([squareImg, circleImg]) => {
+            /* 1. FeatureCollection для каждого стиля */
+            const solidFeats: GeoJSON.Feature<GeoJSON.LineString>[] = []
+            const dashedFeats: GeoJSON.Feature<GeoJSON.LineString>[] = []
+
+            ways.forEach((w) => {
+                let bend = w.bend || 0.17
+                let deg = w.deg || 90
+
+                const [p1, p2] = [w.start, w.end]
+                const mid = turf.midpoint(turf.point(p1), turf.point(p2))
+                const bear = turf.bearing(p1, p2) + deg
+                const ctrl = turf.destination(mid, turf.distance(p1, p2) * bend, bear)
+
+                const curved = bezier(lineString([p1, ctrl.geometry.coordinates, p2]), 10000, 0.85)
+
+                ;(w.type === 'solid' ? solidFeats : dashedFeats).push(curved)
+            })
+
+            /* 2. источники */
+            map.addSource('solid-lines', {
+                type: 'geojson',
+                data: { type: 'FeatureCollection', features: solidFeats },
+                lineMetrics: true,
+            })
+            map.addSource('dashed-lines', {
+                type: 'geojson',
+                data: { type: 'FeatureCollection', features: dashedFeats },
+            })
+
+            /* 3. слой сплошных */
+            map.addLayer({
+                id: 'ways-solid',
+                type: 'line',
+                source: 'solid-lines',
+                layout: { 'line-join': 'round', 'line-cap': 'round' },
+                paint: {
+                    'line-color': '#7B1C19',
+                    'line-width': 1,
+                    'line-gradient': [
+                        'interpolate',
+                        ['linear'],
+                        ['line-progress'], // 0 → 1 по длине
+                        0,
+                        'rgba(123, 28, 25, 1)', // начало — непрозрачно
+                        0.7,
+                        'rgba(123, 28, 25, 0.6)', // 70 % — полупрозрачно
+                        1,
+                        'rgba(123, 28, 25, 0)', // конец — полностью прозрачно
+                    ],
+                },
+            })
+
+            /* 4. слой пунктирных */
+            map.addLayer({
+                id: 'ways-dashed',
+                type: 'line',
+                source: 'dashed-lines',
+                layout: { 'line-join': 'round', 'line-cap': 'round' },
+                paint: {
+                    'line-color': '#7B1C19',
+                    'line-width': 1,
+                    'line-dasharray': [2, 2],
+                },
+            })
+
             map.addImage('square-icon', squareImg, { sdf: false })
             map.addImage('circle-icon', circleImg, { sdf: false })
 
-            // 4-1. GeoJSON
             const geoJson = buildGeoJSON(pointsData)
             map.addSource('points', { type: 'geojson', data: geoJson })
 
-            // 4-2. слои
             addSymbolLayer('square-points', 'square-icon', 'square')
             addSymbolLayer('circle-points', 'circle-icon', 'circle')
 
-            // 4-3. fitBounds
             const bounds = new LngLatBounds()
             pointsData.forEach((p) => bounds.extend(p.coords))
             map.fitBounds(bounds, { padding: 60 })
         })
         .catch((err) => console.error('Не удалось загрузить иконки:', err))
-
-    const lineCoords: [number, number][] = [
-        [37.227341184922, 55.667670562189166], // Москва
-        [64.89984343546354, 48.219399654357545], // Казахстан (Караганда)
-    ]
-
-    const arc = greatCircle(
-        lineCoords[0],
-        lineCoords[1],
-        { npoints: 100 }, // кол-во промежуточных точек
-    )
-
-    map.addSource('arc', { type: 'geojson', data: arc })
-    map.addLayer({
-        id: 'arc-layer',
-        type: 'line',
-        source: 'arc',
-        paint: {
-            'line-color': '#7B1C19',
-            'line-width': 1,
-            'line-opacity': 0.9,
-        },
-    })
-
-    const lineGeoJson: GeoJSON.Feature<GeoJSON.LineString> = {
-        type: 'Feature',
-        geometry: {
-            type: 'LineString',
-            coordinates: lineCoords,
-        },
-        properties: {},
-    }
-
-    map.addSource('line1', { type: 'geojson', data: lineGeoJson })
-
-    // 2-2. стилизованный слой
-    // map.addLayer({
-    //     id: 'line1-layer',
-    //     type: 'line',
-    //     source: 'line1',
-    //     layout: {
-    //         'line-join': 'round',
-    //         'line-cap': 'round',
-    //     },
-    //     paint: {
-    //         'line-color': '#7B1C19', // цвет
-    //         'line-width': 1, // толщина (px)
-    //         'line-dasharray': [4, 2], // пунктир 4-2-4-2...
-    //         'line-opacity': 0.9,
-    //         'line-blur': 1, // лёгкая тень
-    //     },
-    // })
 })
 
 // ---------- helpers ----------
+
 function loadImage(url: string): Promise<HTMLImageElement> {
     return new Promise((resolve, reject) => {
         const img = new Image()
