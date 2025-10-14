@@ -58,6 +58,10 @@
 
     --filter-white: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(7478%) hue-rotate(172deg)
         brightness(105%) contrast(100%);
+
+    --filter-main125: brightness(0) saturate(100%) invert(84%) sepia(13%) saturate(325%) hue-rotate(314deg)
+        brightness(105%) contrast(74%);
+
     --filter-black: brightness(0) saturate(100%) invert(3%) sepia(34%) saturate(520%) hue-rotate(315deg) brightness(96%)
         contrast(101%);
 

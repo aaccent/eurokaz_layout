@@ -1,5 +1,6 @@
 extends layout/page
 include layout/utils
+include components/slider/slider
 
 block append main
     include components/main-hero/main-hero
@@ -12,5 +13,5 @@ block append main
             .section__title.projects__title Реализованные проекты
             .section__subtitle.projects__subtitle Кейсы логистических решений для бизнеса любого масштаба
         include components/cases/cases
-    include components/slider/slider
     +slider
+    include components/form/form

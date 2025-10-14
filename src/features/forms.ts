@@ -32,6 +32,7 @@ async function submitHandler(event: SubmitEvent) {
     })
 
     if (!res.ok) {
+        form.reset()
         return console.error(
             'Error while submitting form\n',
             form,

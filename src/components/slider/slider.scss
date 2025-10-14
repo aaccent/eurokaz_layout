@@ -88,6 +88,12 @@
                 @include utils.square(14px);
                 filter: var(--filter-black);
             }
+
+            &:hover {
+                &::after {
+                    filter: var(--filter-main100);
+                }
+            }
         }
     }
 

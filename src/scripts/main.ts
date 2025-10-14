@@ -1,4 +1,6 @@
 import '@/features/popup/popup'
+import '@/features/forms'
+import '@/features/inputMask/'
 import '@/features/scroll'
 import '@/layout/header/header'
 import '@/layout/footer/footer'

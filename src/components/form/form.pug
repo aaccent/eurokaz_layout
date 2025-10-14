@@ -1,0 +1,27 @@
+include layout/utils
+
++section.form.section__trigger
+    h2.form__title.section__subtitle Заказать просчет
+    .form__body
+        .line
+        .form__aside
+            .form__text Ответим на все ваши вопросы
+        form(data-handler='php')
+            .form__inputs
+                input.input.input-half(type='text', required, placeholder='Ваше имя*', name='name')
+                input.input.input-half(type='text', required, placeholder='Название компании*', name='company')
+                input.input.input-half(type='text', required, placeholder='Номер телефона*', name='tel')
+                input.input.input-half(type='email', required, placeholder='E-mail*', name='email')
+                textarea.textarea(placeholder='Ваше сообщение*', rows=5)
+            .form__bottom
+                label.form__policy
+                    .form__policy-icon
+                    p!= 'Нажимая кнопку «Получить консультацию», вы соглашаетесь с <a target="_blank" href="#">политикой конфиденциальности</a>'
+                    input(type='checkbox', required, name='policy')
+                label.form__file
+                    .form__file-icon
+                    .form__file-text
+                        p Прикрепить файл
+                        span.form__file-name Принимаются файлы любого расширения до 10 Мб
+                    input(type='file')
+            button.form__button.button.button--fill.button--arrow Получить консультацию
