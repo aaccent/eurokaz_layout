@@ -1,0 +1,44 @@
+@use 'styles/utils';
+
+.cookie {
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    padding: 40px;
+    width: 100%;
+    max-width: 576px;
+    background-color: white;
+
+    &__title {
+        margin-bottom: 10px;
+        font: var(--font-header400);
+        text-transform: uppercase;
+    }
+
+    &__text {
+        margin-bottom: 30px;
+        color: var(--base160);
+        font: var(--text-base500);
+    }
+
+    a {
+        color: var(--base100);
+        text-decoration: underline;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .cookie {
+        padding: 30px 10px;
+
+        &__text {
+            margin-bottom: 20px;
+        }
+
+        &__button {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

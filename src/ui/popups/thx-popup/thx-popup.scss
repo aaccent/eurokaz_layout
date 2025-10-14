@@ -1,0 +1,15 @@
+@use 'styles/utils';
+
+.thx-popup {
+    &__title {
+        margin-bottom: 25px;
+        max-width: 90%;
+        font: var(--font-header200);
+        text-transform: uppercase;
+    }
+
+    &__text {
+        color: var(--base160);
+        font: var(--text-base500);
+    }
+}

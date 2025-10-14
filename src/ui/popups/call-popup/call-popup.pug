@@ -1,4 +1,24 @@
 include layout/utils
 include features/popup/popup
 
-+popup("call", "call-popup")
++popup("call-popup", "call-popup")
+    .call-popup__title Оставьте заявку для консультации
+    form(data-handler='php')
+        .form__inputs
+            input.input(type='text', required, placeholder='Ваше имя*', name='name')
+            input.input(type='text', required, placeholder='Название компании*', name='company')
+            input.input(type='tel', required, placeholder='Номер телефона*', name='tel')
+            input.input(type='email', required, placeholder='E-mail*', name='email')
+            textarea.textarea(placeholder='Ваше сообщение*', rows=4)
+        .form__bottom
+            label.form__file
+                .form__file-icon
+                .form__file-text
+                    p Прикрепить файл
+                    span.form__file-name Принимаются файлы любого расширения до 10 Мб
+                input(type='file')
+            label.form__policy
+                .form__policy-icon
+                p!= 'Нажимая кнопку «Получить консультацию», вы соглашаетесь с <a target="_blank" href="#">политикой конфиденциальности</a>'
+                input(type='checkbox', required, name='policy')
+        button.form__button.button.button--fill.button--arrow Получить консультацию

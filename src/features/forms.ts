@@ -1,3 +1,5 @@
+import { closeActivePopup, openPopup } from 'features/popup/popup'
+
 const forms = document.querySelectorAll<HTMLFormElement>('form[data-handler]')
 forms.forEach((form) => {
     form.addEventListener('submit', submitHandler)
@@ -46,6 +48,12 @@ async function submitHandler(event: SubmitEvent) {
     }
 
     form.dispatchEvent(formSent)
+
+    const popupForm = form.closest('.popup')
+    if (!popupForm) return
+
+    closeActivePopup()
+    openPopup('thx-popup')
 }
 
 /**
