@@ -128,7 +128,6 @@
         }
 
         &._opened {
-            z-index: 2;
             opacity: 1;
             visibility: visible;
             transition:
@@ -357,6 +356,7 @@
             flex-direction: column;
             justify-content: start;
             overflow-y: auto;
+            pointer-events: none;
             background-color: white;
             border-radius: 0;
 
@@ -492,6 +492,10 @@
                 font: var(--text-base300);
                 text-transform: none;
                 text-wrap: nowrap;
+            }
+
+            &._opened {
+                pointer-events: auto;
             }
         }
     }

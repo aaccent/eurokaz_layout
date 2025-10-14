@@ -33,7 +33,7 @@ footer.footer
                 +anchor('/')
                     +img(require('assets/icons/logo.svg')).footer__logo
                 .footer__text!= 'Логистика, на которую <br>можно положиться'
-                button.footer__button.button.button--arrow Заказать звонок
+                button.footer__button.button.button--arrow(data-action='popup', data-popup='call-popup') Заказать звонок
             .footer__menu
                 each item in footerMenu
                     .footer__menu-block
