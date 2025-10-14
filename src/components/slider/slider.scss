@@ -1,0 +1,175 @@
+@use 'styles/utils';
+
+.slider {
+    padding: 160px 0;
+    background-color: var(--bg-light);
+
+    &__body {
+        position: relative;
+        margin-top: 45px;
+        display: flex;
+        border-top: 1px solid hsl(0, 33%, 2%, 60%);
+        border-bottom: 1px solid hsl(0, 33%, 2%, 60%);
+    }
+
+    &__aside {
+        padding: 20px 0;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    &__text {
+        width: 100%;
+        max-width: 301px;
+    }
+
+    .swiper {
+        &-slide {
+            padding: 20px 0 20px 20px;
+            border-left: 1px dashed hsl(0, 33%, 2%, 20%);
+        }
+    }
+
+    &__slide {
+        padding: 15px 15px 29px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        border-radius: 5px;
+
+        &-number {
+            align-self: end;
+            opacity: 0.45;
+        }
+
+        &-icon {
+            object-position: center;
+            object-fit: contain;
+            width: 160px;
+            max-height: 104px;
+        }
+
+        &-name {
+            font: var(--text-base200);
+        }
+    }
+
+    &__nav {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        padding: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        border-radius: 2px;
+
+        &-prev {
+            transform: rotate(180deg);
+        }
+
+        &-prev,
+        &-next {
+            @include utils.square(53px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--bg-light);
+            border-radius: 2px;
+
+            &::after {
+                content: '';
+                @include utils.bg-defaults(auto);
+                background-image: url('assets/icons/double-arrow.svg');
+                @include utils.square(14px);
+                filter: var(--filter-black);
+            }
+        }
+    }
+
+    &__pag {
+        margin: 0 24px;
+        width: fit-content;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .slider {
+        padding: 80px 0;
+
+        &__title {
+            text-align: center;
+        }
+
+        &__body {
+            margin-top: 15px;
+            width: 100%;
+            display: block;
+            border: none;
+        }
+
+        &__aside {
+            margin-bottom: 30px;
+            padding: 0;
+        }
+
+        &__text {
+            text-align: center;
+        }
+
+        .swiper {
+            border-top: 1px solid hsl(0, 33%, 2%, 60%);
+            border-bottom: 1px solid hsl(0, 33%, 2%, 60%);
+
+            &-slide {
+                padding: 10px 0 10px 10px;
+            }
+
+            &-pagination-bullet {
+                transform: rotate(45deg);
+                opacity: 1;
+                background: var(--base120);
+                border-radius: 0;
+
+                &-active {
+                    background: var(--main100);
+                }
+            }
+        }
+
+        &__slide {
+            padding: 10px 10px 29px;
+            height: 320px;
+
+            &-icon {
+                max-width: 120px;
+            }
+
+            &-name {
+                font: var(--text-base300);
+            }
+        }
+
+        &__nav {
+            position: static;
+            background-color: transparent;
+
+            &-prev,
+            &-next {
+                min-width: 44px;
+                @include utils.square(44px);
+                background-color: white;
+            }
+        }
+
+        &__pag {
+            margin: 0;
+            width: fit-content;
+            text-align: center;
+        }
+    }
+}

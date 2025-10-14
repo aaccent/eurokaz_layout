@@ -1,0 +1,84 @@
+include layout/utils
+
+mixin slider(props)
+    -
+        props = Object.assign({
+            type: 'clients' || 'media',
+            title: 'Наши клиенты',
+            text: 'Доверия клиентов вдохновляет нас становиться лучше и находить решения  для самых сложных задач',
+            clientsList: [
+                {
+                icon: require('assets/icons/clients/1.svg'),
+                name: 'Калашников Концерн'
+                },{
+                icon: require('assets/icons/clients/2.svg'),
+                name: 'Эльбрус'
+                },{
+                icon: require('assets/icons/clients/3.svg'),
+                name: 'Газпром'
+                },{
+                icon: require('assets/icons/clients/2.svg'),
+                name: 'Эльбрус'
+                },{
+                icon: require('assets/icons/clients/3.svg'),
+                name: 'Газпром'
+                },{
+                icon: require('assets/icons/clients/1.svg'),
+                name: 'Эльбрус'
+                },
+
+            ],
+            mediaList: [
+                {
+                    image: require('assets/content/main-hero/2.jpg'),
+                    title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+                    tag: 'Новости',
+                    date: '02.06.2025'
+                },{
+                    image: require('assets/content/main-hero/2.jpg'),
+                    title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+                    tag: 'Блог',
+                    date: '10.06.2025'
+                },{
+                    image: require('assets/content/main-hero/2.jpg'),
+                    title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+                    tag: 'Новости',
+                    date: '02.12.2025'
+                },{
+                    image: require('assets/content/main-hero/2.jpg'),
+                    title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+                    tag: 'Блог',
+                    date: '02.06.2003'
+                },{
+                    image: require('assets/content/main-hero/2.jpg'),
+                    title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+                    tag: 'Блог',
+                    date: '02.06.2025'
+                },{
+                    image: require('assets/content/main-hero/2.jpg'),
+                    title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+                    tag: 'Новости',
+                    date: '02.06.2025'
+                },
+            ],
+            mediaTypes: ['Все','Новости','Блог']
+        })
+    +section.slider.section__trigger
+        h2.slider__title.section__subtitle= props.title
+        .slider__body
+            .slider__aside
+                if props.type === 'clients'
+                    .slider__text.animated-content= props.text
+            .swiper
+                .swiper-wrapper
+                    if props.type === 'clients'
+                        each item, index in props.clientsList
+                            .swiper-slide
+                                .slider__slide
+                                    .slider__slide-number= `0${index + 1}`
+                                    +img(item.icon).slider__slide-icon
+                                    .slider__slide-name= item.name
+            .slider__nav
+                button.slider__nav-prev
+                .slider__pag
+                button.slider__nav-next
