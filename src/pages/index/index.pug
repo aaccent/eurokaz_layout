@@ -1,9 +1,10 @@
 extends layout/page
 include layout/utils
 include components/slider/slider
+include components/main-hero/main-hero
 
 block append main
-    include components/main-hero/main-hero
+    +main-hero
     include components/about-block/about-block
     include components/map/map
     include components/advantages/advantages
