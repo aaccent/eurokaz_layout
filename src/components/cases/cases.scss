@@ -92,34 +92,8 @@
     }
 
     &__button {
-        gap: 10px;
         margin-top: 60px;
         margin-left: 405px;
-        display: flex;
-        align-items: center;
-
-        &-icon {
-            width: 20px;
-            height: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--main105);
-            border-radius: 2px;
-
-            &::after {
-                content: '';
-                @include utils.bg-defaults(auto);
-                filter: var(--filter-main100);
-                width: 7px;
-                height: 7px;
-                background-image: url('assets/icons/plus.svg');
-            }
-        }
-
-        &-arrow {
-            display: none;
-        }
     }
 }
 

@@ -17,6 +17,7 @@
     &__content {
         -webkit-line-clamp: 5;
         -webkit-box-orient: vertical;
+        padding: 0;
         display: -webkit-box;
         overflow: hidden;
         color: var(--base160);

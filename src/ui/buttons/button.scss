@@ -75,3 +75,45 @@
         }
     }
 }
+
+.simple-button {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    transition: color 300ms linear;
+
+    .icon {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--main105);
+        border-radius: 2px;
+        transition: background-color 300ms linear;
+
+        &::after {
+            content: '';
+            @include utils.bg-defaults(auto);
+            filter: var(--filter-main100);
+            width: 7px;
+            height: 7px;
+            background-image: url('assets/icons/plus.svg');
+            transition: background-color 300ms linear;
+        }
+    }
+
+    &:hover {
+        color: var(--main100);
+        transition: color 300ms linear;
+
+        .icon {
+            background-color: var(--main100);
+            transition: background-color 300ms linear;
+
+            &::after {
+                filter: var(--white);
+            }
+        }
+    }
+}

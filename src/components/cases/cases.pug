@@ -66,5 +66,5 @@ include layout/utils
                         +img(item.img || require('assets/cases-list/1.png')).cases__item-image
                         .cases__item-text= item.text || 'Медицинские товары'
                             +img(item.icon || require('assets/icons/med.svg')).cases__item-icon
-    +anchor.cases__button Cмотреть все
-        .cases__button-icon
+    +anchor.simple-button.cases__button Cмотреть все
+        .cases__button-icon.icon

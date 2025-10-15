@@ -1,0 +1,40 @@
+include layout/utils
+
+-
+    var list = [
+        {
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            icon: require('assets/icons/subcategories/1.svg')
+        },{
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            icon: require('assets/icons/subcategories/2.svg')
+        },{
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            icon: require('assets/icons/subcategories/3.svg')
+        },{
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            icon: require('assets/icons/subcategories/4.svg')
+        },{
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            icon: require('assets/icons/subcategories/5.svg')
+        },{
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            icon: require('assets/icons/subcategories/1.svg')
+        },
+    ]
+
++section.subcategories.section__trigger
+    h2.subcategories__title.section__subtitle Дополнительные услуги
+        .subcategories__arrow
+    .subcategories__list
+        .line
+        each item in list
+            .subcategories__item
+                +anchor
+                    .subcategories__item-title= item.title
+                    .subcategories__item-bottom
+                        .subcategories__item-icon
+                            +img(item.icon)
+                        .subcategories__item-arrow
+    +anchor.subcategories__button.simple-button Cмотреть все
+        .subcategories__button-icon.icon
