@@ -40,6 +40,13 @@
         background-color: white;
         border-radius: 5px;
 
+        &:is(a) {
+            padding: 0;
+            justify-content: start;
+            align-items: start;
+            background-color: transparent;
+        }
+
         &-number {
             align-self: end;
             opacity: 0.45;
@@ -54,6 +61,75 @@
 
         &-name {
             font: var(--text-base200);
+        }
+
+        &-image {
+            object-fit: cover;
+            object-position: center;
+            margin-bottom: 20px;
+            width: 100%;
+            height: 240px;
+        }
+
+        &-bottom {
+            margin-top: auto;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            color: var(--base160);
+            font: var(--text-base400);
+        }
+
+        &-title {
+            font: var(--text-base200);
+        }
+
+        &-tag {
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border: 1px solid var(--base120);
+        }
+    }
+
+    &__tab-list {
+        gap: 11px;
+        display: flex;
+        flex-direction: column;
+        color: var(--base140);
+        font: var(--text-base200);
+    }
+
+    &__tab-item {
+        position: relative;
+        transition: transform 300ms linear;
+
+        &._active {
+            transform: translateX(19px);
+            color: var(--base100);
+            transition: transform 300ms linear;
+
+            &::before {
+                transform: translate(-19px, -50%);
+                opacity: 1;
+                visibility: visible;
+                transition: transform 300ms linear;
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            @include utils.square(12px);
+            @include utils.bg-defaults(contain);
+            filter: var(--filter-main100);
+            top: 50%;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            background-image: url('assets/icons/double-arrow.svg');
+            transition: transform 300ms linear;
         }
     }
 
@@ -100,6 +176,10 @@
     &__pag {
         margin: 0 24px;
         width: fit-content;
+    }
+
+    .selector {
+        display: none;
     }
 }
 
@@ -158,10 +238,25 @@
             &-name {
                 font: var(--text-base300);
             }
+
+            &-image {
+                margin-bottom: 15px;
+                height: 140px;
+            }
+
+            &-bottom {
+                font: var(--text-base500);
+            }
+
+            &-tag {
+                padding: 10px 15px;
+            }
         }
 
         &__nav {
             position: static;
+            margin-top: 25px;
+            padding: 0;
             background-color: transparent;
 
             &-prev,
@@ -176,6 +271,24 @@
             margin: 0;
             width: fit-content;
             text-align: center;
+        }
+
+        &__tab-list {
+            display: none;
+        }
+
+        .selector {
+            display: flex;
+        }
+
+        .swiper {
+            overflow: visible;
+            &-slide {
+                &-active {
+                    padding-left: 0;
+                    border-left: none;
+                }
+            }
         }
     }
 }

@@ -6,8 +6,17 @@ void (function () {
     const height = header?.offsetHeight || 0
     document.documentElement.style.setProperty('--header-height', `${height}px`)
 
-    const reverseHeaderColors = document.body.querySelector('.main-hero, .page-hero')
+    const reverseHeaderColors = document.body.querySelector('.main-hero')
     if (reverseHeaderColors) header?.classList.add('reverse')
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY
+        if (scrollY) {
+            header?.classList.add('scrolled')
+        } else {
+            header?.classList.remove('scrolled')
+        }
+    })
 
     const menuButtons = document.querySelectorAll('.header__menu-button, .header__burger')
     const menu = document.querySelector('.header__menu')

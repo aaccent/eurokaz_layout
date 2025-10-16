@@ -6,7 +6,7 @@ void (function () {
     if (!sliderSwiper) return
 
     new Swiper(sliderSwiper, {
-        slidesPerView: 1.3,
+        slidesPerView: 1.2,
         spaceBetween: 10,
         modules: [Navigation, Pagination],
         navigation: {
@@ -27,5 +27,14 @@ void (function () {
                 },
             },
         },
+    })
+
+    const tabs = document.querySelectorAll('.slider__tab-item')
+    tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            const activeTab = document.querySelector('.slider__tab-item._active')
+            activeTab?.classList.remove('_active')
+            tab.classList.add('_active')
+        })
     })
 })()

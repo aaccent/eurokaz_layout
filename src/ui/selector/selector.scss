@@ -1,0 +1,56 @@
+@use 'styles/utils';
+
+.selector {
+    position: relative;
+    z-index: 2;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--base120);
+
+    &::after {
+        content: '';
+        @include utils.square(12px);
+        @include utils.bg-defaults(contain);
+        transform: rotate(180deg);
+        background-image: url('assets/icons/arrow.svg');
+    }
+
+    &__selected {
+        pointer-events: none;
+    }
+
+    &-list {
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        padding: 15px 15px 5px;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        background-color: white;
+        border-radius: 5px;
+        border: 1px solid var(--base120);
+        transition:
+            visibility 300ms linear,
+            opacity 300ms linear;
+    }
+
+    &-item {
+        padding-bottom: 10px;
+    }
+
+    &._opened {
+        background-color: white;
+
+        .selector-list {
+            opacity: 1;
+            visibility: visible;
+            transition:
+                visibility 300ms linear,
+                opacity 300ms linear;
+        }
+    }
+}

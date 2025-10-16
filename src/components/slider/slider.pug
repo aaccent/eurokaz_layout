@@ -1,4 +1,5 @@
 include layout/utils
+include ui/selector/selector
 
 mixin slider(props)
     -
@@ -62,13 +63,18 @@ mixin slider(props)
                 },
             ],
             mediaTypes: ['Все','Новости','Блог']
-        })
+        }, props || {})
     +section.slider.section__trigger
         h2.slider__title.section__subtitle= props.title
         .slider__body
             .slider__aside
                 if props.type === 'clients'
                     .slider__text.animated-content= props.text
+                else
+                    .slider__tab-list
+                        each tab in props.mediaTypes
+                            button.slider__tab-item= tab
+                    +selector(props.mediaTypes)
             .swiper
                 .swiper-wrapper
                     if props.type === 'clients'
@@ -78,6 +84,15 @@ mixin slider(props)
                                     .slider__slide-number= `0${index + 1}`
                                     +img(item.icon).slider__slide-icon
                                     .slider__slide-name= item.name
+                    else
+                        each item in props.mediaList
+                            .swiper-slide
+                                +anchor.slider__slide
+                                    +img(item.image).slider__slide-image
+                                    .slider__slide-title= item.title
+                                    .slider__slide-bottom
+                                        .slider__slide-tag= item.tag
+                                        .slider__slide-date= item.date
             .slider__nav
                 button.slider__nav-prev
                 .slider__pag

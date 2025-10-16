@@ -1,6 +1,8 @@
 @use 'styles/utils';
 
 .subcategories {
+    margin-bottom: 160px;
+
     &__list {
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
@@ -97,6 +99,12 @@
 
 @media only screen and (max-width: 1000px) {
     .subcategories {
+        margin-bottom: 80px;
+
+        & + .projects {
+            padding-top: 0;
+        }
+
         .container {
             padding-top: 20px;
             border-top: 1px solid var(--base120);
@@ -135,8 +143,8 @@
 
         &__list {
             grid-template-columns: repeat(1, 1fr);
-            margin-top: 20px;
-            padding-top: 15px;
+            margin-top: 0;
+            padding-top: 0;
             height: 0;
             overflow-x: hidden;
             opacity: 0;
@@ -177,6 +185,8 @@
 
         &._opened {
             .subcategories__list {
+                margin-top: 20px;
+                padding-top: 15px;
                 height: fit-content;
                 opacity: 1;
                 visibility: visible;

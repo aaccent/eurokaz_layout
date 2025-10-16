@@ -1,0 +1,8 @@
+include layout/utils
+
+mixin selector(props)
+    .selector
+        span.selector__selected
+        .selector-list
+            each item in props
+                .selector-item= item
