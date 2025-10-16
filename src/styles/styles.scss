@@ -16,10 +16,12 @@
 @use 'ui/popups/thx-popup/thx-popup';
 @use 'ui/cookie/cookie';
 @use 'ui/selector/selector';
+@use 'ui/breadcrumbs/breadcrumbs';
 
 // Page
 @use 'layout/header/header';
 @use 'layout/footer/footer';
+@use 'pages/contacts/contacts';
 
 @use 'components/main-hero/main-hero';
 @use 'components/about-block/about-block';

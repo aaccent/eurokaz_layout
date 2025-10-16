@@ -1,0 +1,26 @@
+extends layout/page
+include layout/utils
+include ui/breadcrumbs/breadcrumbs
+
+block append main
+    +section.page__inner
+        +breadcrumbs(['Главная', 'Контакты'])
+        .contacts__title-wrapper
+            h1.page__title.contacts__title Контакты
+            +anchor.contacts__download-link Скачать реквизиты компании
+                .icon
+    +section.contacts__info-list
+        .contacts__info
+            .contacts__info-title Номер телефона
+            .contacts__info-value 8 (976) 543-21-00
+        .contacts__info
+            .contacts__info-title График работы
+            .contacts__info-value пн-сб: с 8:00 до 20:00
+        .contacts__info
+            .contacts__info-title Адрес офиса
+            .contacts__info-value Республика татарстан, г. Казань, ул. Баумана, 1
+        .contacts__info
+            .contacts__info-title Электронная почта
+            .contacts__info-value euro_kaz@mail.ru
+    +section({container:false}).contacts-map(data-coords='49.149299, 55.757066')
+    include components/form/form

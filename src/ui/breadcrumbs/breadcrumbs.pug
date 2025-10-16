@@ -1,0 +1,9 @@
+include layout/utils
+
+mixin breadcrumbs(props)
+    .breadcrumbs
+        each item, index in props
+            if index===props.length-1
+                .breadcrumbs-item= item
+            else
+                +anchor.breadcrumbs-item= item

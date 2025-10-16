@@ -1,0 +1,125 @@
+@use 'styles/utils';
+
+.contacts {
+    &__title {
+        &-wrapper {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+        }
+    }
+
+    &__download-link {
+        gap: 10px;
+        display: flex;
+        align-items: center;
+
+        .icon {
+            @include utils.square(20px);
+            min-width: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--main105);
+
+            &::after {
+                content: '';
+                @include utils.square(8px);
+                @include utils.bg-defaults(contain);
+                filter: var(--filter-main100);
+                background-image: url('assets/icons/download.svg');
+            }
+        }
+
+        &:hover {
+            .icon {
+                background-color: var(--main100);
+                &::after {
+                    filter: var(--filter-white);
+                }
+            }
+        }
+    }
+
+    &__info {
+        padding: 20px;
+        width: 25%;
+        height: 340px;
+        display: flex;
+        flex-direction: column;
+        border-left: 1px dashed hsl(0, 33%, 2%, 20%);
+
+        &:first-child {
+            border-left: none;
+        }
+
+        &-list {
+            .container {
+                display: flex;
+                border-top: 1px solid hsl(0, 33%, 2%, 60%);
+                border-bottom: 1px solid hsl(0, 33%, 2%, 60%);
+            }
+        }
+
+        &-title {
+            color: var(--base160);
+            font: var(--text-base500);
+            text-transform: uppercase;
+        }
+
+        &-value {
+            margin-top: auto;
+            font: var(--font-header400);
+            text-transform: uppercase;
+        }
+    }
+
+    &-map {
+        position: relative;
+        margin-top: 75px;
+        height: 736px;
+
+        &__marker {
+            position: relative;
+            @include utils.circle(20px);
+            background-color: var(--main100);
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .contacts {
+        &__title {
+            margin-bottom: 20px;
+
+            &-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        &__info {
+            gap: 15px;
+            padding: 20px 0;
+            width: 100%;
+            height: fit-content;
+            border-bottom: 1px dashed hsl(0, 33%, 2%, 20%);
+            border-left: none;
+
+            &:last-child {
+                border-bottom: none;
+            }
+            &-list {
+                .container {
+                    flex-direction: column;
+                }
+            }
+        }
+
+        &-map {
+            margin-top: 40px;
+            height: 500px;
+        }
+    }
+}

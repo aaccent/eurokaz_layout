@@ -1,0 +1,30 @@
+@use 'styles/utils';
+
+.breadcrumbs {
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+    &-item {
+        gap: 10px;
+        display: flex;
+        align-items: center;
+        color: var(--base140);
+
+        &::before {
+            content: '';
+            @include utils.square(6px);
+            transform: rotate(45deg);
+            min-width: 6px;
+            background-color: var(--main100);
+        }
+
+        &:first-child {
+            color: var(--base100);
+
+            &::before {
+                content: none;
+            }
+        }
+    }
+}
