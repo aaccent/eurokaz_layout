@@ -2,8 +2,13 @@
 
 .breadcrumbs {
     gap: 10px;
+    margin-bottom: 30px;
     display: flex;
     flex-wrap: wrap;
+
+    @media only screen and (max-width: 1000px) {
+        margin-bottom: 60px;
+    }
 
     &-item {
         gap: 10px;

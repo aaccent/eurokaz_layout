@@ -1,6 +1,7 @@
 extends layout/page
 include layout/utils
 include components/main-hero/main-hero
+include components/slider/slider
 
 block append main
     +main-hero({isSlider: false, slides: [{ image: require('assets/content/about.png'), title: 'О компании', description: 'Экспертные решения для перевозки ценностей: от бронированного транспорта до строгой конфиденциальности. Гарантия сохранности и своевременной доставки в любую точку мира'}]})
@@ -43,6 +44,6 @@ block append main
             .section__title.projects__title Реализованные проекты
             .section__subtitle.projects__subtitle Кейсы логистических решений для бизнеса любого масштаба
         include components/cases/cases
-    include components/slider/slider
     +slider({title:'медиацентр', type:'media', })
-    include components/form/form
+    +section({ container: false }).form.section__trigger
+        include components/form/form

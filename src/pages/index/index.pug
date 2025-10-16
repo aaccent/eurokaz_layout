@@ -15,5 +15,6 @@ block append main
             .section__subtitle.projects__subtitle Кейсы логистических решений для бизнеса любого масштаба
         include components/cases/cases
     +slider
-    include components/form/form
+    +section({ container: false }).form.section__trigger
+        include components/form/form
     include components/seo/seo

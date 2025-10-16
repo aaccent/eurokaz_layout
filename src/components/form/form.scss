@@ -1,7 +1,21 @@
 @use 'styles/utils';
 
 .form {
-    padding: 160px 0;
+    margin: 160px 0;
+
+    &-bg {
+        margin: 0;
+        padding: 160px 0;
+        background-color: var(--bg-light);
+        .input {
+            background-color: var(--plate);
+        }
+
+        .form__file,
+        textarea {
+            display: none;
+        }
+    }
 
     &__title {
         padding-left: 405px;
@@ -184,7 +198,7 @@
 
 @media only screen and (max-width: 1000px) {
     .form {
-        padding: 80px 0;
+        margin: 80px 0;
 
         &__title {
             padding: 0;

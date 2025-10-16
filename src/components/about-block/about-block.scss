@@ -29,6 +29,11 @@
         }
     }
 
+    .content {
+        padding: 0;
+        background-color: transparent;
+    }
+
     &__numbers {
         column-gap: 20px;
         margin-bottom: 36px;

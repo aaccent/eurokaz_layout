@@ -23,4 +23,5 @@ block append main
             .contacts__info-title Электронная почта
             .contacts__info-value euro_kaz@mail.ru
     +section({container:false}).contacts-map(data-coords='49.149299, 55.757066')
-    include components/form/form
+    +section({ container: false }).form.section__trigger
+        include components/form/form

@@ -4,7 +4,7 @@ include ui/selector/selector
 mixin slider(props)
     -
         props = Object.assign({
-            type: 'clients' || 'media',
+            type: 'clients' || 'media' || 'gallery',
             title: 'Наши клиенты',
             text: 'Доверия клиентов вдохновляет нас становиться лучше и находить решения  для самых сложных задач',
             clientsList: [
@@ -62,19 +62,25 @@ mixin slider(props)
                     date: '02.06.2025'
                 },
             ],
+            gallery: ['assets/content/main-hero/2.jpg','assets/content/main-hero/2.jpg','assets/content/main-hero/2.jpg','assets/content/main-hero/2.jpg','assets/content/main-hero/2.jpg','assets/content/main-hero/2.jpg'],
             mediaTypes: ['Все','Новости','Блог']
         }, props || {})
-    +section.slider.section__trigger
-        h2.slider__title.section__subtitle= props.title
+    +section.slider.section__trigger(class=props.type)
+        if props.type === 'clients' || props.type === 'media'
+            h2.slider__title.section__subtitle= props.title
+        else
+
         .slider__body
             .slider__aside
                 if props.type === 'clients'
                     .slider__text.animated-content= props.text
-                else
+                else if props.type === 'media'
                     .slider__tab-list
                         each tab in props.mediaTypes
                             button.slider__tab-item= tab
                     +selector(props.mediaTypes)
+                else if props.type === 'gallery'
+                    h2.slider__title.section__subtitle= props.title
             .swiper
                 .swiper-wrapper
                     if props.type === 'clients'
@@ -84,7 +90,7 @@ mixin slider(props)
                                     .slider__slide-number= `0${index + 1}`
                                     +img(item.icon).slider__slide-icon
                                     .slider__slide-name= item.name
-                    else
+                    else if props.type === 'media'
                         each item in props.mediaList
                             .swiper-slide
                                 +anchor.slider__slide
@@ -93,6 +99,11 @@ mixin slider(props)
                                     .slider__slide-bottom
                                         .slider__slide-tag= item.tag
                                         .slider__slide-date= item.date
+                    else if props.type === 'gallery'
+                        each item, index in props.gallery
+                            .swiper-slide
+                                .slider__slide
+                                    +img(require(item)).slider__slide-image
             .slider__nav
                 button.slider__nav-prev
                 .slider__pag

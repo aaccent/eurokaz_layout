@@ -5,6 +5,8 @@ void (function () {
     const sliderSwiper = document.querySelector<HTMLElement>('.slider .swiper')
     if (!sliderSwiper) return
 
+    const gallery = sliderSwiper.closest('.gallery')
+
     new Swiper(sliderSwiper, {
         slidesPerView: 1.2,
         spaceBetween: 10,
@@ -20,7 +22,7 @@ void (function () {
 
         breakpoints: {
             1000: {
-                slidesPerView: 3,
+                slidesPerView: gallery ? 2 : 3,
                 spaceBetween: 20,
                 pagination: {
                     type: 'fraction',

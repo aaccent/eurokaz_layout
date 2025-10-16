@@ -58,6 +58,10 @@ html.disable-scroll {
     &__title {
         font: var(--font-header100);
         text-transform: uppercase;
+
+        @media only screen and (max-width: 1000px) {
+            text-align: center;
+        }
     }
 }
 
