@@ -1,0 +1,16 @@
+include layout/utils
+
+mixin card(props)
+    -
+        props = Object.assign({
+            image: require('assets/content/main-hero/2.jpg'),
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            tag: 'Новости',
+            date: '02.06.2025'
+        }, props || {})
+    +anchor.card&attributes(attributes)
+        +img(props.image).card__image
+        .card__title= props.title
+        .card__bottom
+            .card__tag= props.tag
+            .card__date= props.date

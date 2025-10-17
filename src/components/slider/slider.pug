@@ -1,5 +1,6 @@
 include layout/utils
 include ui/selector/selector
+include ui/card/card
 
 mixin slider(props)
     -
@@ -68,8 +69,6 @@ mixin slider(props)
     +section.slider.section__trigger(class=props.type)
         if props.type === 'clients' || props.type === 'media'
             h2.slider__title.section__subtitle= props.title
-        else
-
         .slider__body
             .slider__aside
                 if props.type === 'clients'
@@ -93,12 +92,7 @@ mixin slider(props)
                     else if props.type === 'media'
                         each item in props.mediaList
                             .swiper-slide
-                                +anchor.slider__slide
-                                    +img(item.image).slider__slide-image
-                                    .slider__slide-title= item.title
-                                    .slider__slide-bottom
-                                        .slider__slide-tag= item.tag
-                                        .slider__slide-date= item.date
+                                +card(item)
                     else if props.type === 'gallery'
                         each item, index in props.gallery
                             .swiper-slide

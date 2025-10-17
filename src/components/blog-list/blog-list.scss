@@ -1,0 +1,36 @@
+@use 'styles/utils';
+
+.blog-list {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 45px;
+    display: grid;
+    border-top: 1px solid hsl(0, 33%, 2%, 60%);
+
+    &__item {
+        padding: 20px;
+        border-bottom: 1px solid hsl(0, 33%, 2%, 20%);
+        border-left: 1px dashed hsl(0, 33%, 2%, 20%);
+
+        &:nth-child(5n),
+        &:first-child {
+            border-left: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .blog-list {
+        grid-template-columns: repeat(1, 1fr);
+        margin-top: 31px;
+
+        &__item {
+            padding: 20px 0;
+            border-bottom: 1px dashed hsl(0, 33%, 2%, 20%);
+            border-left: 0;
+
+            &:last-child {
+                border-bottom-style: solid;
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+include layout/utils
+include ui/card/card
+-
+    var list = [
+        {
+            image: require('assets/content/main-hero/2.jpg'),
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            tag: 'Новости',
+            date: '02.06.2025'
+        }, {
+            image: require('assets/content/main-hero/2.jpg'),
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            tag: 'Блог',
+            date: '10.06.2025'
+        }, {
+            image: require('assets/content/main-hero/2.jpg'),
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            tag: 'Новости',
+            date: '02.12.2025'
+        }, {
+            image: require('assets/content/main-hero/2.jpg'),
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            tag: 'Блог',
+            date: '02.06.2003'
+        }, {
+            image: require('assets/content/main-hero/2.jpg'),
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            tag: 'Блог',
+            date: '02.06.2025'
+        }, {
+            image: require('assets/content/main-hero/2.jpg'),
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            tag: 'Новости',
+            date: '02.06.2025'
+        },{
+            image: require('assets/content/main-hero/2.jpg'),
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            tag: 'Блог',
+            date: '02.06.2025'
+        }, {
+            image: require('assets/content/main-hero/2.jpg'),
+            title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
+            tag: 'Новости',
+            date: '02.06.2025'
+        }
+    ]
+
+.blog-list
+    each item in list
+        +card(item).blog-list__item

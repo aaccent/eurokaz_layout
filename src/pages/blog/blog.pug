@@ -1,0 +1,22 @@
+extends layout/page
+include ui/breadcrumbs/breadcrumbs
+include ui/selector/selector
+
+block append main
+    +section.page__inner
+        +breadcrumbs(['Главная', 'Блог'])
+        .page__title Блог компании
+    +section.blog
+        .blog__header
+            .blog__tags
+                .blog__tags-item._active Все
+                .blog__tags-item Статьи
+                .blog__tags-item Новости
+            +selector(['Все','Статьи','Новости']).blog__selector._mobile
+            +selector(['Сначала новые','Сначала старые']).blog__selector
+        include components/blog-list/blog-list
+        button.simple-button.blog__button Cмотреть еще
+            .icon
+    include components/advantages/advantages
+    +section({ container: false }).form.section__trigger
+        include components/form/form

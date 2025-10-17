@@ -17,11 +17,13 @@
 @use 'ui/cookie/cookie';
 @use 'ui/selector/selector';
 @use 'ui/breadcrumbs/breadcrumbs';
+@use 'ui/card/card';
 
 // Page
 @use 'layout/header/header';
 @use 'layout/footer/footer';
 @use 'pages/contacts/contacts';
+@use 'pages/blog/blog';
 
 @use 'components/main-hero/main-hero';
 @use 'components/about-block/about-block';
@@ -34,3 +36,4 @@
 @use 'components/seo/seo';
 @use 'components/subcategories/subcategories';
 @use 'components/faq/faq';
+@use 'components/blog-list/blog-list';

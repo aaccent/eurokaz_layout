@@ -8,7 +8,8 @@ void (function () {
     const gallery = sliderSwiper.closest('.gallery')
 
     new Swiper(sliderSwiper, {
-        slidesPerView: 1.2,
+        //autoHeight: true,
+        slidesPerView: 1.3,
         spaceBetween: 10,
         modules: [Navigation, Pagination],
         navigation: {

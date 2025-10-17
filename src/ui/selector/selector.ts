@@ -1,8 +1,4 @@
-import { isDesktop } from 'globals/adaptive'
-
 void (function () {
-    if (isDesktop) return
-
     const selectors = document.querySelectorAll<HTMLElement>('.selector')
 
     selectors.forEach((selector) => {

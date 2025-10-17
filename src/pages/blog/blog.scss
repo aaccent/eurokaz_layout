@@ -1,0 +1,71 @@
+@use 'styles/utils';
+
+.blog {
+    padding: 80px 0 160px;
+    background-color: var(--bg-light);
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__selector {
+        width: 240px;
+
+        &._mobile {
+            z-index: 3;
+            display: none;
+        }
+    }
+
+    &__tags {
+        gap: 5px;
+        display: flex;
+        color: var(--base160);
+
+        &-item {
+            padding: 17px 24px;
+            cursor: pointer;
+            border-radius: 5px;
+
+            &._active {
+                color: white;
+                background-color: var(--main100);
+            }
+        }
+    }
+
+    &__button {
+        margin: 60px auto 0;
+
+        .icon {
+            background-color: white;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .blog {
+        padding: 40px 0 80px;
+        &__tags {
+            display: none;
+        }
+
+        &__header {
+            gap: 5px;
+            flex-direction: column;
+        }
+
+        &__selector {
+            width: 100%;
+            &._mobile {
+                display: flex;
+            }
+        }
+
+        &__button {
+            margin-top: 31px;
+        }
+    }
+}
