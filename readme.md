@@ -2,16 +2,16 @@
 
 ## Страницы
 
-[Главная](https://aaccent.github.io/eurokaz_layout)
-[О компании](https://aaccent.github.io/eurokaz_layout/about.html)
-[Блог](https://aaccent.github.io/eurokaz_layout/blog.html)
-[Блог детальная](https://aaccent.github.io/eurokaz_layout/blog-detail.html)
-[Кейсы детальная](https://aaccent.github.io/eurokaz_layout/case-detail.html)
-[Кейсы](https://aaccent.github.io/eurokaz_layout/cases.html)
-[Контакты](https://aaccent.github.io/eurokaz_layout/contacts.html)
-[404](https://aaccent.github.io/eurokaz_layout/error.html)
-[Направления/Услуга/ Вид транспорта ](https://aaccent.github.io/eurokaz_layout/service.html)
-[Поднаправления/Подуслуга/Подвид транспорта](https://aaccent.github.io/eurokaz_layout/sub-service.html)
+- [Главная](https://aaccent.github.io/eurokaz_layout)
+- [О компании](https://aaccent.github.io/eurokaz_layout/about.html)
+- [Блог](https://aaccent.github.io/eurokaz_layout/blog.html)
+- [Блог детальная](https://aaccent.github.io/eurokaz_layout/blog-detail.html)
+- [Кейсы детальная](https://aaccent.github.io/eurokaz_layout/case-detail.html)
+- [Кейсы](https://aaccent.github.io/eurokaz_layout/cases.html)
+- [Контакты](https://aaccent.github.io/eurokaz_layout/contacts.html)
+- [404](https://aaccent.github.io/eurokaz_layout/error.html)
+- [Направления/Услуга/ Вид транспорта ](https://aaccent.github.io/eurokaz_layout/service.html)
+- [Поднаправления/Подуслуга/Подвид транспорта](https://aaccent.github.io/eurokaz_layout/sub-service.html)
 
 ## Стек
 
