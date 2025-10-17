@@ -1,16 +1,29 @@
 # Набор для верстки сайтов
 
+## Страницы
+
+[Главная](https://aaccent.github.io/eurokaz_layout)
+[О компании](https://aaccent.github.io/eurokaz_layout/about.html)
+[Блог](https://aaccent.github.io/eurokaz_layout/blog.html)
+[Блог детальная](https://aaccent.github.io/eurokaz_layout/blog-detail.html)
+[Кейсы детальная](https://aaccent.github.io/eurokaz_layout/case-detail.html)
+[Кейсы](https://aaccent.github.io/eurokaz_layout/cases.html)
+[Контакты](https://aaccent.github.io/eurokaz_layout/contacts.html)
+[404](https://aaccent.github.io/eurokaz_layout/error.html)
+[Направления/Услуга/ Вид транспорта ](https://aaccent.github.io/eurokaz_layout/service.html)
+[Поднаправления/Подуслуга/Подвид транспорта](https://aaccent.github.io/eurokaz_layout/sub-service.html)
+
 ## Стек
 
 Набор состоит из:
 
--   Webpack
--   Pug
--   TypeScript или JavaScript
--   SCSS
--   PostCSS
--   Prettier
--   pnpm
+- Webpack
+- Pug
+- TypeScript или JavaScript
+- SCSS
+- PostCSS
+- Prettier
+- pnpm
 
 ## Зависимости
 
@@ -44,9 +57,9 @@
 
 Присутствует шаблон страницы по пути `src/layout/page` с блоками:
 
--   `block head` - для вставки кода в `head` тэг
--   `block scripts` - для вставки кода в конец `body`
--   `block main` - для вставки кода в страницу
+- `block head` - для вставки кода в `head` тэг
+- `block scripts` - для вставки кода в конец `body`
+- `block main` - для вставки кода в страницу
 
 Шаблон можно использовать по короткой ссылке:
 
@@ -66,8 +79,8 @@ block append main
 
 Имеется главные файлы скриптов и стилей по путям:
 
--   Скрипты - `src/scripts/main.ts`
--   Стили - `src/styles/styles.scss`
+- Скрипты - `src/scripts/main.ts`
+- Стили - `src/styles/styles.scss`
 
 Они всегда входят в результат сборки как `main.bundle.js` и `styles.css`
 
