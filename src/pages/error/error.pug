@@ -1,0 +1,9 @@
+extends layout/page
+include layout/utils
+
+block append main
+    +section.error
+        .error__title 404
+        .error__subtitle Такой страницы не существует
+        .error__text Проверьте правильность ссылки, попробуйте воспользоваться меню или вернитесь на главную
+        +anchor('/').error__button.button.button--fill.button--arrow На главную
