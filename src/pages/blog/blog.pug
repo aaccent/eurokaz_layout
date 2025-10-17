@@ -1,6 +1,7 @@
 extends layout/page
 include ui/breadcrumbs/breadcrumbs
 include ui/selector/selector
+include ui/tabs/tabs
 
 block append main
     +section.page__inner
@@ -8,10 +9,7 @@ block append main
         .page__title Блог компании
     +section.blog
         .blog__header
-            .blog__tags
-                .blog__tags-item._active Все
-                .blog__tags-item Статьи
-                .blog__tags-item Новости
+            +tabs(['Все', 'Статьи', 'Новости'])
             +selector(['Все','Статьи','Новости']).blog__selector._mobile
             +selector(['Сначала новые','Сначала старые']).blog__selector
         include components/blog-list/blog-list

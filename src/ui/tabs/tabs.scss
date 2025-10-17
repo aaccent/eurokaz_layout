@@ -1,0 +1,18 @@
+@use 'styles/utils';
+
+.tabs {
+    gap: 5px;
+    display: flex;
+    color: var(--base160);
+
+    &__item {
+        padding: 17px 24px;
+        cursor: pointer;
+        border-radius: 5px;
+
+        &._active {
+            color: white;
+            background-color: var(--main100);
+        }
+    }
+}

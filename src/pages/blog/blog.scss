@@ -19,23 +19,6 @@
         }
     }
 
-    &__tags {
-        gap: 5px;
-        display: flex;
-        color: var(--base160);
-
-        &-item {
-            padding: 17px 24px;
-            cursor: pointer;
-            border-radius: 5px;
-
-            &._active {
-                color: white;
-                background-color: var(--main100);
-            }
-        }
-    }
-
     &__button {
         margin: 60px auto 0;
 
@@ -48,7 +31,7 @@
 @media only screen and (max-width: 1000px) {
     .blog {
         padding: 40px 0 80px;
-        &__tags {
+        .tabs {
             display: none;
         }
 

@@ -1,0 +1,9 @@
+include layout/utils
+
+mixin tabs(props)
+    .tabs
+        each item, index in props
+            if index === 0
+                .tabs__item._active= item
+            else
+                .tabs__item= item

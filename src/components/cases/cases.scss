@@ -95,6 +95,17 @@
         margin-top: 60px;
         margin-left: 405px;
     }
+
+    &-page {
+        padding-top: 80px;
+        background-color: var(--bg-light);
+
+        &__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -187,6 +198,21 @@
                     padding-bottom: 15px;
                     height: fit-content;
                 }
+            }
+        }
+
+        &-page {
+            padding-top: 40px;
+            &__header {
+                gap: 5px;
+                flex-direction: column;
+            }
+            .tabs {
+                display: none;
+            }
+
+            .selector._mobile {
+                display: flex;
             }
         }
     }
