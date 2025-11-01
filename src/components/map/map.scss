@@ -4,13 +4,7 @@
     position: relative;
     height: 1064px;
     overflow: hidden;
-    background-color: #dbdbdc;
-
-    #map {
-        position: relative;
-        height: 100%;
-        overflow: hidden;
-    }
+    background-color: var(--bg-light);
 
     &__title-wrapper {
         position: absolute;
