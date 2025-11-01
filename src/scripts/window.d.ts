@@ -7,6 +7,8 @@ declare global {
         globalScripts: {
             [key in ScriptTypes]?: ScriptStatus
         }
+
+        initSwiper: () => void
     }
 }
 
