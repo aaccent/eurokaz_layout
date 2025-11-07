@@ -3,7 +3,7 @@
 .main-hero {
     height: 100svh;
 
-    &.main-hero__slider {
+    &__slider {
         .main-hero__slide-content {
             gap: 0;
             padding-top: 40px;
@@ -144,6 +144,16 @@
     .main-hero {
         &__navigation {
             display: none;
+        }
+
+        &__slider {
+            .main-hero__slide-content {
+                gap: 20px;
+                bottom: 64px;
+                padding-top: 20px;
+                height: fit-content;
+                flex-direction: column;
+            }
         }
 
         &__slide {

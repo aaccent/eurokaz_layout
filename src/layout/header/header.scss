@@ -2,7 +2,7 @@
 
 .header {
     position: fixed;
-    z-index: 100;
+    z-index: 3;
     top: 0;
     width: 100%;
     background-color: white;
@@ -140,8 +140,12 @@
     &__logo {
         object-position: center;
         object-fit: cover;
-        width: 84px;
-        height: 32px;
+        width: 109px;
+        height: 28px;
+
+        &--mobile {
+            display: none;
+        }
     }
 
     &__tel {
@@ -389,13 +393,17 @@
             display: none;
         }
 
-        &__logo {
-            width: 58px;
-            height: 22px;
+        &__link {
+            padding: 10px;
         }
 
-        &__link {
-            padding: 10px 11px;
+        &__logo {
+            display: none;
+
+            &--mobile {
+                display: block;
+                @include utils.square(22px);
+            }
         }
 
         &__button {
@@ -406,9 +414,10 @@
         &__menu {
             position: fixed;
             top: var(--header-height);
+            bottom: 0;
             padding: 30px 10px;
             width: 100%;
-            height: calc(100svh - var(--header-height));
+            //height: calc(100svh - var(--header-height));
             flex-direction: column;
             justify-content: start;
             overflow-y: auto;

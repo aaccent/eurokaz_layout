@@ -28,7 +28,7 @@ include layout/utils
         },{
             title: 'Вид транспорта:',
             list: ['Автомобильные перевозки','Железнодорожные перевозки','Авиационные перевозки','Морские перевозки']
-        },
+        }
     ]
 
 header.header
@@ -37,9 +37,10 @@ header.header
             .header__logo-container
                 +anchor('/').header__link
                     +img(require('assets/icons/logo.svg')).header__logo
+                    +img(require('assets/icons/logo--mobile.svg')).header__logo--mobile
                 .header__menu-button Меню
                     .header__menu-icon
-            +anchor("tel:89765432100").header__tel 8 (976) 543 21 00
+            +anchor('tel:89765432100').header__tel 8 (976) 543 21 00
         .header__right
             nav
                 ul.header__nav
