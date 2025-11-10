@@ -14,15 +14,15 @@
     }
 
     &__item {
-        border-bottom: 1px solid var(--base120);
         a {
             gap: 178px;
             padding: 20px 0;
             display: flex;
+            border-bottom: 1px solid var(--base120);
 
             &:hover {
                 color: var(--main100);
-                border-color: var(--base100);
+                border-bottom-color: var(--base100);
             }
         }
 

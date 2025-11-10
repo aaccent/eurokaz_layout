@@ -30,6 +30,12 @@ html {
 body {
     overflow-x: clip;
     font: var(--text-base400);
+
+    &:has(.header__menu._opened) {
+        .footer {
+            z-index: 2;
+        }
+    }
 }
 
 html.disable-scroll {

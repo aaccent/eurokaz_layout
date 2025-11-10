@@ -1,6 +1,8 @@
 @use 'styles/utils';
 
 .footer {
+    position: relative;
+    z-index: 4;
     padding-top: 80px;
     color: white;
     background-color: var(--bg-dark);

@@ -323,8 +323,8 @@
     }
 
     &.scrolled {
+        box-shadow: 0 10px 15px 0 var(--base120);
         background-color: white;
-        border-bottom: 1px solid var(--base120);
         transition: all 300ms linear;
 
         .container {
@@ -358,11 +358,14 @@
         }
 
         .header__submenu {
+            top: calc(100% + 16px);
+            box-shadow: 0 5px 15px 0 var(--base120);
             background-color: var(--bg-light);
         }
 
         .header__menu {
-            top: 100%;
+            top: calc(100% + 8px);
+            box-shadow: 0 5px 15px 0 var(--base120);
             background-color: var(--bg-light);
         }
 
@@ -417,7 +420,6 @@
             bottom: 0;
             padding: 30px 10px;
             width: 100%;
-            //height: calc(100svh - var(--header-height));
             flex-direction: column;
             justify-content: start;
             overflow-y: auto;
