@@ -26,6 +26,33 @@
     &__control {
         display: none;
     }
+
+    &__svg {
+        margin-top: 245px;
+        width: 100%;
+        height: 825px;
+
+        &-mobile {
+            display: none;
+        }
+    }
+
+    &__scale {
+        display: none;
+    }
+
+    .dashed-lines {
+        stroke: var(--main100);
+        stroke-width: 1.5;
+        stroke-dasharray: 4;
+        filter: drop-shadow(4px 4px 4px var(--main100));
+        opacity: 0;
+    }
+
+    .to-kz__anim,
+    .from-kz__anim {
+        filter: drop-shadow(4px 4px 4px var(--main100));
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -47,24 +74,42 @@
             text-align: center;
         }
 
-        &__control {
+        &__svg {
+            display: none;
+
+            &-mobile {
+                margin-top: 48px;
+                width: 100%;
+                height: 100%;
+                max-height: 268px;
+                display: block;
+                overflow: scroll;
+
+                svg {
+                    transform-origin: 0 0;
+                    transition: transform 300ms linear;
+                }
+            }
+        }
+
+        &__scale {
             gap: 5px;
             position: absolute;
-            bottom: 0;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
+            justify-content: center;
 
-            &--plus,
-            &--minus {
-                font-size: 1.8rem;
-                opacity: 0;
-                visibility: hidden;
-                @include utils.square(32px);
+            &-plus,
+            &-minus {
+                width: 32px;
+                height: 32px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 color: var(--main100);
+                font-size: 20px;
                 background-color: white;
                 border-radius: 2px;
                 border: 1px solid var(--main110);
