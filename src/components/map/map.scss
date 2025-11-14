@@ -44,14 +44,9 @@
     .dashed-lines {
         stroke: var(--main100);
         stroke-width: 1.5;
-        stroke-dasharray: 4;
+        stroke-dasharray: 4 4;
         filter: drop-shadow(4px 4px 4px var(--main100));
-        opacity: 0;
-    }
-
-    .to-kz__anim,
-    .from-kz__anim {
-        filter: drop-shadow(4px 4px 4px var(--main100));
+        animation: moveDashed 1.5s linear infinite;
     }
 }
 
@@ -115,5 +110,18 @@
                 border: 1px solid var(--main110);
             }
         }
+
+        .dashed-lines {
+            stroke-width: 0.8;
+        }
+    }
+}
+
+@keyframes moveDashed {
+    from {
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dashoffset: -8;
     }
 }
