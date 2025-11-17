@@ -1,5 +1,5 @@
 import { Map } from 'mapbox-gl'
-import logo from '@/assets/icons/test-logo.png'
+import logo from '@/assets/icons/logo.png'
 import { isMobile } from 'globals/adaptive'
 
 void (function () {
@@ -37,31 +37,31 @@ void (function () {
 
             // @ts-ignore
             map.addImage('logo', img)
+        })
 
-            map.addSource('point', {
-                type: 'geojson',
-                data: {
-                    type: 'FeatureCollection',
-                    features: [
-                        {
-                            type: 'Feature',
-                            geometry: { type: 'Point', coordinates: [lng, lat] },
-                            properties: {},
-                        },
-                    ],
-                },
-            })
+        map.addSource('point', {
+            type: 'geojson',
+            data: {
+                type: 'FeatureCollection',
+                features: [
+                    {
+                        type: 'Feature',
+                        geometry: { type: 'Point', coordinates: [lng, lat] },
+                        properties: {},
+                    },
+                ],
+            },
+        })
 
-            map.addLayer({
-                id: 'custom-pin',
-                type: 'symbol',
-                source: 'point',
-                layout: {
-                    'icon-image': 'logo',
-                    'icon-anchor': 'center',
-                    'icon-size': isMobile ? 0.5 : 1,
-                },
-            })
+        map.addLayer({
+            id: 'custom-pin',
+            type: 'symbol',
+            source: 'point',
+            layout: {
+                'icon-image': 'logo',
+                'icon-anchor': 'center',
+                'icon-size': isMobile ? 0.5 : 1,
+            },
         })
     })
 })()

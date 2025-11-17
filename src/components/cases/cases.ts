@@ -18,8 +18,12 @@ void (function () {
         } else {
             const arrow = item.querySelector('.cases__item-arrow')
             arrow?.addEventListener('click', () => {
+                const isActive = item.querySelector('.cases__item-content')?.classList.contains('_visible')
+                if (isActive) {
+                    item.querySelector('.cases__item-content')?.classList.remove('_visible')
+                    return
+                }
                 document.querySelector('.cases__item-content._visible')?.classList.remove('_visible')
-
                 item.querySelector('.cases__item-content')?.classList.add('_visible')
             })
         }
