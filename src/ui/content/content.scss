@@ -14,12 +14,9 @@
     }
 
     .video-block {
+        margin-bottom: 80px;
         .container {
             height: 570px;
-        }
-
-        &:not(:last-child) {
-            margin-bottom: 80px;
         }
     }
 
