@@ -13,6 +13,16 @@
         overflow-x: visible;
     }
 
+    .video-block {
+        .container {
+            height: 570px;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 80px;
+        }
+    }
+
     h2:first-child,
     h3:first-child,
     h4:first-child,
