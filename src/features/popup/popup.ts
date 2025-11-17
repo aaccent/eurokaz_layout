@@ -81,3 +81,6 @@ export function closeActivePopup(code?: any | 'process') {
     activePopup.classList.remove('opened')
     activePopup.dispatchEvent(closedPopupEvent)
 }
+
+window.openPopup = openPopup
+window.closeActivePopup = closeActivePopup

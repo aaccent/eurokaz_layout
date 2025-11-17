@@ -9,6 +9,8 @@ declare global {
         }
 
         initSwiper: () => void
+        openPopup: (name: string) => void
+        closeActivePopup: () => void
     }
 }
 

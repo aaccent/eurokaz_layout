@@ -196,6 +196,15 @@
     outline: none;
 }
 
+.input.invalid {
+    color: #ba070a;
+    border: 1px solid #ba070a;
+
+    &::placeholder {
+        color: #ba070a;
+    }
+}
+
 @media only screen and (max-width: 1000px) {
     .form {
         margin: 80px 0;
