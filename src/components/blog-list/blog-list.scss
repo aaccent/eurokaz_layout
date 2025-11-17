@@ -30,10 +30,10 @@
         &__item {
             padding: 20px 0;
             border-bottom: 1px dashed hsl(0, 33%, 2%, 20%);
-            border-left: 0;
+            border-left: none;
 
-            &:last-child {
-                border-bottom-style: solid;
+            &:nth-last-child(-n + 4) {
+                border-bottom: 1px dashed hsl(0, 33%, 2%, 20%);
             }
         }
     }
