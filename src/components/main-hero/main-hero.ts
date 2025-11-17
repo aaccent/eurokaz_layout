@@ -54,9 +54,9 @@ function animateSlideContent(content: HTMLElement) {
     gsap.fromTo(line, { width: 0 }, { width: '100%', duration: 1 })
 
     const tl = gsap.timeline()
-    tl.fromTo(title, { opacity: 0, y: 100 }, { opacity: 1, duration: 1, y: 0 }).fromTo(
+    tl.fromTo(title, { opacity: 0, y: 100 }, { opacity: 1, duration: 1.5, y: 0 }).fromTo(
         description,
         { opacity: 0, y: 100 },
-        { opacity: 1, duration: 1, y: 0 },
+        { opacity: 1, duration: 1.5, y: 0 },
     )
 }

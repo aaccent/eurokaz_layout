@@ -48,13 +48,13 @@ triggerSections.forEach((section) => {
         scrollTrigger: {
             trigger: section,
             start: 'top bottom-=300',
-            //markers: { startColor: 'green', endColor: 'red', fontSize: '12px' },
+            markers: { startColor: 'green', endColor: 'red', fontSize: '12px' },
         },
     })
     tl.addLabel('title')
-        .fromTo(title, { y: 100, opacity: 0 }, { y: 0, opacity: 1 })
-        .fromTo(subtitle, { y: 100, opacity: 0 }, { y: 0, opacity: 1 })
-        .fromTo(line, { width: 0 }, { width: 'var(--container-width)' })
+        .fromTo(title, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
+        .fromTo(subtitle, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
+        .fromTo(line, { width: 0 }, { width: 'var(--container-width)', duration: 1 })
         .addLabel('content')
-        .fromTo(content, { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, 'title+=1')
+        .fromTo(content, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 'title+=1')
 })
