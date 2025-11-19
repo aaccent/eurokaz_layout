@@ -48,7 +48,7 @@ triggerSections.forEach((section) => {
         scrollTrigger: {
             trigger: section,
             start: 'top bottom-=300',
-            markers: { startColor: 'green', endColor: 'red', fontSize: '12px' },
+            //markers: { startColor: 'green', endColor: 'red', fontSize: '12px' },
         },
     })
     tl.addLabel('title')

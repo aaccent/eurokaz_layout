@@ -1,24 +1,27 @@
 void (function () {
-    const videoBlock = document.querySelector('.video-block')
-    const video = videoBlock?.querySelector<HTMLVideoElement>('.video-block video')
-    if (!videoBlock || !video) return
+    const videoBlocks = document.querySelectorAll('.video-block__item')
 
-    const wrapper = videoBlock.querySelector('.video-block__wrapper')
+    videoBlocks.forEach((block) => {
+        const video = block.querySelector('video')
+        //if(!video) return
 
-    wrapper?.addEventListener('click', () => {
-        video.play()
-        videoBlock.classList.add('_playing')
-    })
+        const wrapper = block.querySelector('.video-block__wrapper')
 
-    video.addEventListener('click', () => {
-        const playing = videoBlock.classList.contains('_playing')
-        if (!playing) return
+        wrapper?.addEventListener('click', () => {
+            video?.play()
+            block.classList.add('_playing')
+        })
 
-        video.pause()
-        videoBlock.classList.remove('_playing')
-    })
+        video?.addEventListener('click', () => {
+            const playing = block.classList.contains('_playing')
+            if (!playing) return
 
-    video.addEventListener('ended', () => {
-        videoBlock.classList.remove('_playing')
+            video.pause()
+            block.classList.remove('_playing')
+        })
+
+        video?.addEventListener('ended', () => {
+            block.classList.remove('_playing')
+        })
     })
 })()
