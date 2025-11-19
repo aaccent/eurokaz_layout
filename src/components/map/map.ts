@@ -32,5 +32,4 @@ document.addEventListener('DOMContentLoaded', () => {
     const tl = gsap.timeline({ repeat: -1 })
     tl.fromTo('.to-kz__anim', { drawSVG: '0' }, { duration: 2, drawSVG: true })
     tl.fromTo('#kazakhstan', { filter: 'none' }, { filter: 'drop-shadow(0 0 12px rgba(123, 28, 25, 0.9))' })
-    tl.fromTo('.from-kz__anim', { drawSVG: '0' }, { duration: 2, drawSVG: true })
 })
