@@ -15,8 +15,13 @@
 
     .video-block {
         margin-bottom: 80px;
+
         .container {
             height: 570px;
+        }
+
+        &__item {
+            width: 100%;
         }
     }
 
