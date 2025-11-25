@@ -73,7 +73,12 @@ include layout/utils
                     .cases__item-content(data-content=`${index + 1}`)
                         .cases__item-image-wrapper
                             .cases__item-from= item.cityFrom
-                            +img(require('assets/icons/cases-path.svg')).cases__item-image
+                            picture
+                                source(
+                                    srcset=require('assets/icons/cases-path__mobile.svg'),
+                                    media='(max-width: 1000px)'
+                                )
+                                +img(require('assets/icons/cases-path.svg')).cases__item-image
                             .cases__item-to= item.cityTo
                         .cases__item-text= item.text || 'Медицинские товары'
                             +img(item.icon || require('assets/icons/med.svg')).cases__item-icon
