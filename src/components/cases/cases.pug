@@ -5,49 +5,57 @@ include layout/utils
             title: 'Перевозка машины класса “Люкс”из Европы',
             type: 'Объект',
             text: '',
-            image: '',
+            cityFrom: 'Казань',
+            cityTo: 'Астана',
             icon: ''
         },{
             title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
             type: 'Услуга',
             text: '',
-            image: '',
+            cityFrom: 'Казань',
+            cityTo: 'Астана',
             icon: ''
         },{
             title: 'Перевозка машины класса “Люкс”из Европы',
             type: 'Услуга',
             text: '',
-            image: '',
+            cityFrom: 'Казань',
+            cityTo: 'Астана',
             icon: ''
         },{
             title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
             type: 'Объект',
             text: '',
-            image: '',
+            cityFrom: 'Казань',
+            cityTo: 'Астана',
             icon: ''
         },{
             title: 'Перевозка машины класса “Люкс”из Европы',
             type: 'Услуга',
             text: '',
-            image: '',
+            cityFrom: 'Казань',
+            cityTo: 'Астана',
             icon: ''
         },{
             title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
             type: 'Объект',
             text: '',
-            image: '',
+            cityFrom: 'Казань',
+            cityTo: 'Астана',
             icon: ''
         },{
             title: 'Перевозка машины класса “Люкс”из Европы',
             type: 'Услуга',
             text: '',
-            image: '',
+            cityFrom: 'Казань',
+            cityTo: 'Астана',
             icon: ''
         },{
             title: 'Доставка негабаритного оборудования из Китая и нужно дописать на две строчки',
             type: 'Объект',
             text: '',
-            image: '',
+            cityFrom: 'Казань',
+            cityTo: 'Астана',
             icon: ''
         },
     ]
@@ -63,7 +71,10 @@ include layout/utils
                             .cases__item-type= item.type
                     .cases__item-arrow
                     .cases__item-content(data-content=`${index + 1}`)
-                        +img(item.img || require('assets/cases-list/1.png')).cases__item-image
+                        .cases__item-image-wrapper
+                            .cases__item-from= item.cityFrom
+                            +img(require('assets/icons/cases-path.svg')).cases__item-image
+                            .cases__item-to= item.cityTo
                         .cases__item-text= item.text || 'Медицинские товары'
                             +img(item.icon || require('assets/icons/med.svg')).cases__item-icon
     +anchor.simple-button.cases__button Cмотреть все

@@ -52,12 +52,31 @@
             }
         }
 
+        &-from {
+            position: absolute;
+            top: 0;
+            left: 30px;
+        }
+
+        &-to {
+            position: absolute;
+            right: 30px;
+            bottom: 0;
+        }
+
         &-image {
             object-fit: contain;
             object-position: center;
-            margin-bottom: 50px;
-            width: 280px;
-            height: 280px;
+            inset: 0;
+            position: absolute;
+            width: 100%;
+
+            &-wrapper {
+                position: relative;
+                margin-bottom: 50px;
+                width: 280px;
+                height: 280px;
+            }
         }
 
         &-text {
