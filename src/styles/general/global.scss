@@ -52,6 +52,25 @@ html.disable-scroll {
     box-sizing: border-box !important;
 }
 
+.page {
+    &__inner {
+        padding: calc(var(--header-height) + 190px) 0 75px;
+
+        @media only screen and (max-width: 1000px) {
+            padding: calc(var(--header-height) + 20px) 0 40px;
+        }
+    }
+
+    &__title {
+        font: var(--font-header100);
+        text-transform: uppercase;
+
+        @media only screen and (max-width: 1000px) {
+            text-align: center;
+        }
+    }
+}
+
 .section {
     &__title {
         display: flex;

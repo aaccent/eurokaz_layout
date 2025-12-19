@@ -1,7 +1,10 @@
 include layout/utils
+include ui/breadcrumbs/breadcrumbs
 
 +section({ container: false }).page-inner
     +img(require('assets/static/Авиационные перевозки.png')).page-inner__image
-    .page-inner__content.container
-        h1.page-inner__title Авиационные перевозки
-        .page-inner__description Экспертные решения для перевозки ценностей: от бронированного транспорта до строгой конфиденциальности. Гарантия сохранности и своевременной доставки в любую точку мира
+    .page-inner__container.container
+        +breadcrumbs(['hfhfhf hoghg pdfjgo dg', 'jdjgkj perjg rpipe gi', 'rhfgieuhi shgoehg ohoihgoieh'])
+        .page-inner__content
+            h1.page-inner__title Авиационные перевозки
+            .page-inner__description Экспертные решения для перевозки ценностей: от бронированного транспорта до строгой конфиденциальности. Гарантия сохранности и своевременной доставки в любую точку мира

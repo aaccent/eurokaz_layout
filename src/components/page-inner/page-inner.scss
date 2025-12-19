@@ -12,12 +12,15 @@
         height: 100%;
     }
 
-    &__content {
+    &__container {
         position: absolute;
         bottom: 35px;
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
+    }
+
+    &__content {
         display: flex;
         justify-content: space-between;
         align-items: end;
@@ -45,6 +48,11 @@
         flex-direction: column-reverse;
         background-color: #f4f4f4;
 
+        .breadcrumbs {
+            position: absolute;
+            top: calc(var(--header-height) + 12px);
+        }
+
         & + .content {
             padding-top: 0;
         }
@@ -53,10 +61,13 @@
             height: 220px;
         }
 
-        &__content {
+        &__container {
             gap: 12px;
             position: static;
             transform: none;
+        }
+
+        &__content {
             flex-direction: column;
             justify-content: center;
             align-items: center;
