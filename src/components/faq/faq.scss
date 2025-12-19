@@ -61,11 +61,13 @@
             border: 1px solid var(--main110);
 
             &::after {
-                content: '';
+                content: '+';
                 @include utils.bg-defaults(contain);
                 @include utils.square(10px);
                 filter: var(--filter-main100);
-                background-image: url('assets/icons/plus.svg');
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
 
@@ -96,6 +98,14 @@
                     color: var(--main100);
                     background-image: none;
                 }
+            }
+        }
+
+        &._opened {
+            color: var(--main100);
+
+            .faq__item-icon::after {
+                content: '-';
             }
         }
     }

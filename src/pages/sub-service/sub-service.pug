@@ -4,9 +4,7 @@ include components/slider/slider
 include ui/breadcrumbs/breadcrumbs
 
 block append main
-    +section.page__inner
-        +breadcrumbs(['Главная','Название направления','Название поднаправления'])
-        .page__title Название поднаправления
+    include components/page-inner/page-inner
     +section.content
         h2 3PL провайдер. Склады класса «А»
         p Оно представляет собой процесс создания плана по возведению нежилого объекта. Важный критерий коммерческих зданий – использование их с целью получения прибыли (например, отели, в которых люди временно проживают за плату). Также в объектах коммерческой недвижимости размещаются офисы, магазины, склады, развлекательные заведения (кинотеатры, детские центры).
@@ -39,11 +37,11 @@ block append main
         h3 3PL провайдер. Склады класса «А»
         p В противном случае это может привести к невозможности правильного выполнения каких-то процессов, а корректировка обойдется довольно дорого. Проектирование производственных зданий выполняется на основе уже работающей схемы. Исполнитель обязан принимать во внимание такие особенности:
         blockquote В противном случае это может привести к невозможности правильного выполнения каких-то процессов, а корректировка обойдется довольно дорого. Проектирование производственных зданий выполняется на основе уже работающей схемы. Исполнитель обязан принимать во внимание такие особенности:
-    +slider({title: 'галерея', type: 'gallery'}).gallery
+    +slider({ title: 'галерея', type: 'gallery' }).gallery
     +section({ container: false }).form.form-bg.section__trigger
         include components/form/form
     include components/advantages/advantages
     include components/faq/faq
-    +section({container: false}).form.section__trigger
+    +section({ container: false }).form.section__trigger
         include components/form/form
     include components/seo/seo

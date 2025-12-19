@@ -13,7 +13,7 @@ void (function () {
             crossFade: false,
         },
         autoplay: {
-            delay: 3000,
+            delay: 60000,
         },
         allowTouchMove: false,
         pagination: {
