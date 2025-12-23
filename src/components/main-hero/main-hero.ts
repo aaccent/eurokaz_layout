@@ -15,7 +15,7 @@ void (function () {
         autoplay: {
             delay: 60000,
         },
-        allowTouchMove: false,
+        allowTouchMove: true,
         pagination: {
             el: '.main-hero__pagination',
             clickable: true,
@@ -26,6 +26,12 @@ void (function () {
         navigation: {
             prevEl: '.main-hero__navigation-prev',
             nextEl: '.main-hero__navigation-next',
+        },
+
+        breakpoints: {
+            1000: {
+                allowTouchMove: false,
+            },
         },
 
         on: {
