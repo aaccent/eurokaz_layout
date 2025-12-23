@@ -49,6 +49,7 @@
             left: 50%;
             transform: translateX(-50%);
             width: var(--container-width);
+            min-height: 280px;
             display: flex;
             flex-direction: column;
             color: white;
@@ -163,6 +164,7 @@
                 bottom: 64px;
                 padding-top: 20px;
                 height: fit-content;
+                min-height: fit-content;
                 flex-direction: column;
             }
 
